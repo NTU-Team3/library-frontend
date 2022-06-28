@@ -1,0 +1,8 @@
+.CarouselPage_container{
+display: flex;
+margin: 10px;
+}
+.CarouselPage_container >div{
+    margin: 10px;
+
+}

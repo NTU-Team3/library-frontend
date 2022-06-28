@@ -1,0 +1,8 @@
+.CarouselHead_heading{
+display: flex;
+margin-bottom: 5px;
+}
+.CarouselHead_heading>div{
+
+    margin:0 10px 0 0;
+    }

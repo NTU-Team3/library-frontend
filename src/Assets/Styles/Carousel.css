@@ -1,0 +1,14 @@
+
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 95px;
+  color: grey;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 95px;
+  color: grey;
+}
