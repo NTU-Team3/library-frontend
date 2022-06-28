@@ -1,0 +1,67 @@
+body{
+    background-color: white;
+}
+.NavbarItems {
+    display: flex;
+    background: #222831;
+    color: white;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.navbar-logo {
+    margin: 150px;
+    font-size: 2em;
+}
+
+.searchbar-logo {
+    margin-right: 15px;
+}
+
+.nav-menu {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 30px;
+    list-style: none;
+    text-align: center;
+    width: 40vw;
+    justify-content: end;
+    margin-right: 8rem;
+    margin-top: 1rem;
+}
+
+/* .photo {
+    height: 20px;
+    width: 20px;
+} */
+
+.templateContainer{
+    margin: 5% 0;
+}
+.templateContainer > .searchInput_Container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin: 0 auto; */
+}
+.templateContainer > .searchInput_Container input{
+    width: 300px;
+    padding: 1px;
+    /* outline: none; */
+}
+/* .templateContainer .template_Container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+} */
+/* .templateContainer .template_Container .template{
+    background-color: #ffce45;
+    margin: 30px;
+    padding: 0px 20px;
+} */
+/* .templateContainer .template_Container .template img{
+    height: 250px;
+} */

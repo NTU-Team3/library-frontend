@@ -1,6 +1,6 @@
 .GenreCard__container{
-    width:200px;
-    height:220px;
+    width:300px;
+    height:260px;
     border-top-left-radius:60px;
     border-bottom-left-radius:60px;
     background-color: black;
@@ -11,7 +11,7 @@
     height: 40px;
     color: white;
     padding: 15px 30px;
-    font-size: larger;
+    font-size: l0px;
     margin: 15px;
 }
 .GenreCard__imgContainer{
@@ -24,6 +24,8 @@
     height: 100%;
     width: 100%;
     border-bottom-left-radius:60px;
+    object-position:center;
+    object-fit: cover;
     
     
 }

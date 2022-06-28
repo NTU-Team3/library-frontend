@@ -1,0 +1,16 @@
+.homepg_container{
+    background-image: url("../Images/home-background.jpeg");
+    background-repeat: no-repeat;
+    background-color: rgba(238, 238, 238, 1);
+    display: grid;
+    background-position: center;
+    grid-template-columns: 3fr 1fr};
+
+p{
+    font-size: 14px !important;
+}
+
+.greeting{
+    margin-left: 10px;
+
+}

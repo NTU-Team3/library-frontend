@@ -13,7 +13,7 @@ function SideInfo() {
       <div className="SideInfo__container">
         <div>Currently Reading</div>
         {readingList.map((book) => {
-          return <div className="alert">{book.title}</div>;
+          return <div className="dueAlert">{book.title}</div>;
         })}
         <div className="bookdue__container">Books due</div>
         {readingList.map((book) => {
