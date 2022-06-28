@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import './style.css';
+import '../../Assets/Styles/navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
 // import data from "./TemplateData.json";
@@ -10,7 +10,7 @@ function SearchBar() {
     <>
       <div className="templateContainer">
         <div className="searchInput_Container">
-          <FontAwesomeIcon className="glass" icon={faMagnifyingGlass} />
+          <FontAwesomeIcon className="searchbar-logo" icon={faMagnifyingGlass} />
           <input id="searchInput" type="text" placeholder="Search here..." onChange={(event) => {
             setSearchTerm(event.target.value);
           }} />
