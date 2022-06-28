@@ -1,0 +1,30 @@
+.GenreCard__container{
+    width:200px;
+    height:220px;
+    border-top-left-radius:60px;
+    border-bottom-left-radius:60px;
+    background-color: black;
+    margin: 40px 0;
+
+    }
+.GenreCard__heading{
+    height: 40px;
+    color: white;
+    padding: 15px 30px;
+    font-size: larger;
+    margin: 15px;
+}
+.GenreCard__imgContainer{
+    height: 100%;
+    width: 100%;
+    background-color: yellow;
+    border-bottom-left-radius:60px;
+}
+.GenreCard__img{
+    height: 100%;
+    width: 100%;
+    border-bottom-left-radius:60px;
+    
+    
+}
+

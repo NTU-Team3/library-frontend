@@ -1,0 +1,34 @@
+.alert{
+height: 39px;
+width:200px;
+border-radius: 20px;
+background-color: black;
+display: flex;
+align-items: center;
+color: white;
+margin: 10px 0 5px;
+padding: 15px;
+
+}
+
+.SideInfo__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.bookdue__container{
+    margin: 40px 0 0 0;
+}
+.bookDueAlert{
+height: 39px;
+width:200px;
+border-radius: 20px;
+background-color: rgba(255, 206, 69, 1);
+display: flex;
+align-items: center;
+color: black;
+margin: 10px 0 5px;
+padding: 15px;
+
+}
