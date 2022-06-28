@@ -1,0 +1,64 @@
+body{
+    background-color: white;
+}
+.NavbarItems {
+    display: flex;
+    background: #222831;
+    color: white;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+}
+
+.glass {
+    margin-right: 15px;
+}
+
+.navbar-logo {
+    margin: 150px;
+}
+
+.nav-menu {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 50px;
+    list-style: none;
+    text-align: center;
+    width: 70vw;
+    justify-content: end;
+    margin-right: 8rem;
+}
+
+.photo {
+    height: 20px;
+    width: 20px;
+}
+
+.templateContainer{
+    margin: 5% 0;
+}
+.templateContainer > .searchInput_Container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.templateContainer > .searchInput_Container input{
+    width: 300px;
+    padding: 10px;
+    outline: none;
+}
+/* .templateContainer .template_Container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+} */
+/* .templateContainer .template_Container .template{
+    background-color: #ffce45;
+    margin: 30px;
+    padding: 0px 20px;
+} */
+.templateContainer .template_Container .template img{
+    height: 250px;
+}
