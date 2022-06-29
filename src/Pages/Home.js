@@ -4,6 +4,7 @@ import CarouselHead from "../components/CarouselHead";
 import PromotionCarousel from "../components/PromotionCarousel";
 import SideInfo from "../components/SideInfo";
 import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer";
 function HomePg() {
   const name = "Charline";
   let date = new Date().toLocaleDateString(undefined, {
@@ -30,6 +31,7 @@ function HomePg() {
         </div>
         <SideInfo></SideInfo>
       </div>
+      <Footer date={"27th Jun 2022"}></Footer>
     </>
   );
 }

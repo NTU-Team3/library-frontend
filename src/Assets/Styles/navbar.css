@@ -65,3 +65,12 @@ body{
 /* .templateContainer .template_Container .template img{
     height: 250px;
 } */
+
+input{
+    background-color:  #ffce45;
+    color: white;
+}
+::placeholder {
+    color: white;
+    padding: 10px;
+}

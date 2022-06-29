@@ -1,0 +1,9 @@
+
+.footer__container{
+    font-size: 12px ;
+    margin: 0 10px;
+}
+.links{
+    display: flex;
+    margin: 5px;
+}
