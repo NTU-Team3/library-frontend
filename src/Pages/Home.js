@@ -18,8 +18,8 @@ function HomePg() {
       <Navbar />
       <div class="homepg_container">
         <div class="greeting">
-          <h3>Greetings,{name}</h3>
-          <p>{date}</p>
+          <h3>Greetings,{name}!</h3>
+          <p class="greeting__p">{date}</p>
         </div>
         <div></div>
         <div>

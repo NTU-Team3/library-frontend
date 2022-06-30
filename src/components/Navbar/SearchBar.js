@@ -1,19 +1,38 @@
-import React, {useState} from "react";
-import '../../Assets/Styles/navbar.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
+import React, { useState } from "react";
+import "../../Assets/Styles/navbar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 // import data from "./TemplateData.json";
+import { Link, useNavigate } from "react-router-dom";
 
 function SearchBar() {
+  const navigate = useNavigate();
+
   const [searchTerm, setSearchTerm] = useState("");
   return (
     <>
       <div className="templateContainer">
         <div className="searchInput_Container">
-          <FontAwesomeIcon className="searchbar-logo" icon={faMagnifyingGlass} />
-          <input id="searchInput" type="text" placeholder="Search here..." onChange={(event) => {
-            setSearchTerm(event.target.value);
-          }} />
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              navigate("/search");
+            }}
+          >
+            <FontAwesomeIcon
+              className="searchbar-logo"
+              icon={faMagnifyingGlass}
+            />
+
+            <input
+              class="searchBox"
+              type="text"
+              onChange={(event) => {
+                setSearchTerm(event.target.value);
+              }}
+            />
+            <input class="submit" type="submit" value="Search" />
+          </form>
         </div>
         {/* <div className="template_Container">
           {
@@ -38,7 +57,7 @@ function SearchBar() {
         </div> */}
       </div>
     </>
-  )
+  );
 }
 
 export default SearchBar;

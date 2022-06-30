@@ -4,13 +4,18 @@
     background-color: rgba(238, 238, 238, 1);
     display: grid;
     background-position: center;
-    grid-template-columns: 3fr 1fr};
+    grid-template-columns: 3fr 1fr
+};
+
+.greeting__p{
+    font-size: 16px
+}
 
 p{
-    font-size: 14px !important;
+    font-size: 16px !important;
 }
 
 .greeting{
-    margin-left: 10px;
+  margin: 50px 0 30px 50px;
 
 }
