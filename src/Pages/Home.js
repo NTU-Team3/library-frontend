@@ -5,6 +5,7 @@ import PromotionCarousel from "../components/PromotionCarousel";
 import SideInfo from "../components/SideInfo";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer";
+
 function HomePg() {
   const name = "Charline";
   let date = new Date().toLocaleDateString(undefined, {

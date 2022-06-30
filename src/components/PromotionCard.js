@@ -10,13 +10,15 @@ function PromotionCard({
   return (
     <div class="PromotionCard_container">
       <div className="text">
-        <h5>
-          {"<"}
+        <div className="text__heading">
+          {"< "}
           {heading}
-          {">"}
-        </h5>
-        <p>{intro} </p>
-        <p>{price}</p>
+          {" >"}
+        </div>
+        <div className="inter promotionInfo">
+          <div>{intro}</div>
+          <div>{price}</div>
+        </div>
       </div>
       <div className="secondPhoto_container">
         <img className="secondPhoto" src={oreoImg} alt="Oreo"></img>

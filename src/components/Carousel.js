@@ -8,7 +8,11 @@ import "../Assets/Styles/Carousel.css";
 function GalleryContainer({ booksToDisplay = 5 }) {
   return (
     <div class="Carousel_container">
-      <Carousel interval={null}>
+      <Carousel
+        interval={null}
+        nextIcon={<span className="slider">{">"}</span>}
+        prevIcon={<span className="slider">{"<"}</span>}
+      >
         <Carousel.Item>
           <CarouselPage booksToDisplay={fakeData.slice(0, booksToDisplay)} />
         </Carousel.Item>
