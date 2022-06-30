@@ -19,7 +19,6 @@ align-items: center;
 }
 .title{
     white-space:nowrap;
-    word-break: normal;
     height: 40px;
     width: 140px;
     overflow: hidden;

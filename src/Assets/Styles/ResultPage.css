@@ -1,4 +1,17 @@
 /* CSS for Dropdown in root index.js */
 .heading{
-    font-size: 40px;
+    font-size: 40px !important;
+}
+
+.pagination_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+.dropDown_Pagination{
+    display: flex;
+}
+.dropDown_Pagination>div{
+  margin: 10px ;
 }

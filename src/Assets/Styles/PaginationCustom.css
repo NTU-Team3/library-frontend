@@ -1,0 +1,33 @@
+.PaginationCustom__container{
+display: flex;
+}
+.box{
+    border: 1px solid black;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter',  sans-serif;
+    font-weight: 400;
+}
+
+.boxActive{
+    border: 1px solid black;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter',  sans-serif;
+    font-weight: 400;
+    background-color: 
+    rgba(255, 206, 69, 1);
+}
+button:hover {
+    background-color: lightgreen; 
+    color: white;
+  }
+  .none{
+    display: none;
+  }
