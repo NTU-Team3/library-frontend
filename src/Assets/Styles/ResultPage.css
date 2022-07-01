@@ -4,14 +4,15 @@
 }
 
 .heading{
-    font-size: 40px !important;
+    font-size: 40px;
 }
 
 .pagination_container{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    padding: 0 100px;
+
 }
 .dropDown_Pagination{
     display: flex;

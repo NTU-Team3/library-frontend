@@ -1,0 +1,42 @@
+import React, { useState } from "react";
+import NavBar from "../components/Navbar/Navbar";
+import ShowBooks from "../components/ShowBooks";
+import fakeData from "../fakeData";
+import "../Assets/Styles/Cart.css";
+
+export default function Cart() {
+  const [cartItems, setCartItems] = useState(fakeData);
+
+  function handleCartItems(idx) {
+    let getInx = cartItems.findIndex((book) => book.id === idx);
+    console.log("getInx", getInx);
+    let newCart = [...cartItems];
+    newCart.splice(getInx, 1);
+    setCartItems(newCart);
+  }
+  return (
+    <div>
+      <NavBar />
+      <div className="heading">Cart</div>
+      <div className="cartItems_container">
+        <ShowBooks
+          data={cartItems}
+          border={true}
+          indexTo={5}
+          showRating={false}
+          type={"cart"}
+          func={handleCartItems}
+        />
+      </div>
+      <div className="lower_container">
+        <div>
+          <div className="subtotal">Sub-Total</div>
+          <div>{cartItems.length} items</div>
+        </div>
+        <div>
+          <button className="button">checkout</button>
+        </div>
+      </div>
+    </div>
+  );
+}

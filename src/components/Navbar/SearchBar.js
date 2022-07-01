@@ -3,7 +3,7 @@ import "../../Assets/Styles/navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 // import data from "./TemplateData.json";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function SearchBar() {
   const navigate = useNavigate();

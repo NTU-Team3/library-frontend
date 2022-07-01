@@ -6,8 +6,7 @@ import fakeData from "../fakeData";
 import PaginationCustom from "../components/PaginationCustom";
 import ShowBooks from "../components/ShowBooks";
 
-function ResultPage({ bookPerPage = 20 }) {
-  const [activePage, setActivePage] = useState(1);
+function ResultPage({ bookPerPage = 10 }) {
   const [value, setValue] = useState("Most Popular");
   const [bookStartfrom, setBookStartfrom] = useState(1);
   const [bookTill, setBookTill] = useState(20);
@@ -20,7 +19,6 @@ function ResultPage({ bookPerPage = 20 }) {
 
   //Uplift state from PaginationCustom.js
   function getActivePage(state) {
-    setActivePage(state);
     setBookStartfrom(1 + state * bookPerPage - bookPerPage);
     setBookTill(state === page ? length : state * bookPerPage);
   }

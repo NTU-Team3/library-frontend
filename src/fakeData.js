@@ -1,6 +1,6 @@
 const data = [
   {
-    id: "1",
+    id: "100",
     title: "Gilead",
     desc: "A NOVEL THAT READERS and critics have been eagerly anticipating for over a decade, Gilead is an asto...",
     thumbnail:

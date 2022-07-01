@@ -1,0 +1,29 @@
+.cartItems_container{
+margin: auto;
+}
+
+.heading{
+    font-size: 40px;
+    margin: 50px 0 0 100px;
+    font-weight: 400;
+}
+.lower_container{
+    display: flex;
+    justify-content: flex-end;
+   width: 80vw;
+}
+.lower_container>div{
+margin-top: auto !important;
+margin: 0 2rem 3rem;
+padding-bottom: 1px;
+
+}
+.button{
+    background-color: rgba(34, 40, 49, 1);
+    color: rgba(238, 238, 238, 1);
+    width: 135px;
+    height: 45px;
+    border-bottom-left-radius: 20px;
+}
+.subtotal{
+    font-size:25px}
