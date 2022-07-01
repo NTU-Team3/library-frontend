@@ -18,22 +18,17 @@ align-items: center;
 
 }
 .title{
-    white-space:nowrap;
     height: 40px;
     width: 140px;
     overflow: hidden;
     text-overflow:ellipsis;
+    white-space:nowrap;
     font-size: 14px;
     margin-bottom: 5px;
     text-align: center;
 }
 
-.rating{
-    display: flex;
-justify-content: center;
-align-items: flex-end;
-margin-top: 10px;
-}
+
 .buffer{
     flex-grow: 1;
 }

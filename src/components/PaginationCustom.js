@@ -6,8 +6,8 @@ export default function PaginationCustom({ page, setActivePage }) {
   const [active, setActive] = useState(1);
 
   function handleSetNext() {
-    setActive(active + 1);
     setActivePage(active + 1);
+    setActive(active + 1);
   }
   function handleSetPrev() {
     setActive(active - 1);

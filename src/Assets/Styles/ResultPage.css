@@ -1,4 +1,8 @@
 /* CSS for Dropdown in root index.js */
+.container{
+    padding: 0  10px;
+}
+
 .heading{
     font-size: 40px !important;
 }

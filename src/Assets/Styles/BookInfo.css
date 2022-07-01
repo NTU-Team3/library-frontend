@@ -1,0 +1,48 @@
+
+.item-thumbnail {
+    grid-area: thumbnail;
+    justify-self:center;
+    align-self: center;
+  }
+  .item-title {
+    grid-area: title;
+    font-size: 26px;
+    height: 10px;
+}
+  
+  .item-rating {
+    grid-area: rating;
+    height: 24px;
+
+}
+
+  .item-desc {
+    grid-area: desc;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  
+  }
+
+  .BookInfo__container{
+    display: grid;
+    grid-template-columns:1fr 5fr ;
+    grid-template-rows: repeat(5,fr);
+    grid-template-areas: 
+    "thumbnail title"
+    "thumbnail rating"
+    "thumbnail desc"
+    "thumbnail desc"
+    "thumbnail desc";
+    gap: 0px 10px;
+    margin: 25px 0;
+    
+    }
+    
+    .thumbnail{
+      object-fit: contain;
+      width: 96px;
+      height: 148px;
+    }
