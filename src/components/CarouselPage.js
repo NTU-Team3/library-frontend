@@ -3,10 +3,11 @@ import BookCard from "./BookCard";
 
 const CarouselPage = ({ booksToDisplay, noOfbooksToShow = 5 }) => {
   return (
-    <div class="CarouselPage_container">
+    <div className="CarouselPage_container">
       {booksToDisplay.map((bookData) => {
         return (
           <BookCard
+            key={bookData.id}
             source={bookData.thumbnail}
             title={bookData.title}
             rating={3}

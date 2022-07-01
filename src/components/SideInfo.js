@@ -13,11 +13,19 @@ function SideInfo() {
       <div className="SideInfo__container">
         <div>Currently Reading</div>
         {readingList.map((book) => {
-          return <div className="dueAlert">{book.title}</div>;
+          return (
+            <div key={book.title} className="dueAlert">
+              {book.title}
+            </div>
+          );
         })}
         <div className="bookdue__container">Books due</div>
         {readingList.map((book) => {
-          return <div className="bookDueAlert">{book.title}</div>;
+          return (
+            <div key={book.title} className="bookDueAlert">
+              {book.title}
+            </div>
+          );
         })}
         <div>
           <GenreCard heading="Featured Genre" imgsrc={FeaturePict}></GenreCard>

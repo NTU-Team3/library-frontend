@@ -3,9 +3,9 @@ import Rating from "./Rating";
 
 function BookCard({ source, title, rating }) {
   return (
-    <div class="bookcard_container">
-      <img src={source} alt={title} class="image" />
-      <div class="title">{title}</div>
+    <div className="bookcard_container">
+      <img src={source} alt={title} className="image" />
+      <div className="title">{title}</div>
 
       <Rating starsRating={rating} />
     </div>

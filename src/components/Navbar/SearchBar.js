@@ -25,13 +25,13 @@ function SearchBar() {
             />
 
             <input
-              class="searchBox"
+              className="searchBox"
               type="text"
               onChange={(event) => {
                 setSearchTerm(event.target.value);
               }}
             />
-            <input class="submit" type="submit" value="Search" />
+            <input className="submit" type="submit" value="Search" />
           </form>
         </div>
         {/* <div className="template_Container">

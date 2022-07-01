@@ -8,7 +8,7 @@ function PromotionCard({
   price = "$39.12",
 }) {
   return (
-    <div class="PromotionCard_container">
+    <div className="PromotionCard_container">
       <div className="text">
         <div className="text__heading">
           {"< "}
@@ -23,8 +23,8 @@ function PromotionCard({
       <div className="secondPhoto_container">
         <img className="secondPhoto" src={oreoImg} alt="Oreo"></img>
       </div>
-      <div class="thirdPhotoContainer">
-        <img class="product_oreo" src={product_oreo} alt="Oreo"></img>
+      <div className="thirdPhotoContainer">
+        <img className="product_oreo" src={product_oreo} alt="Oreo"></img>
       </div>
     </div>
   );

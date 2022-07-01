@@ -4,11 +4,15 @@ import "../Assets/Styles/PaginationCustom.css";
 export default function PaginationCustom({ page, setActivePage }) {
   let pages = [];
   const [active, setActive] = useState(1);
+  //page logic
+  // let bookStartfrom = 1 + activePage * bookPerPage - bookPerPage;
+  // let bookTill = activePage === page ? length : activePage * bookPerPage;
 
   function handleSetNext() {
     setActivePage(active + 1);
     setActive(active + 1);
   }
+
   function handleSetPrev() {
     setActive(active - 1);
     setActivePage(active - 1);

@@ -2,10 +2,10 @@ import "../Assets/Styles/Footer.css";
 
 function Footer({ date }) {
   return (
-    <div class="footer__container">
+    <div className="footer__container">
       <div> Last updated: {date}</div>
       <div>
-        <ul class="links">
+        <ul className="links">
           <li>Terms of use</li>
           <li>Privacy Statement</li>
           <li>Linking Disclaimer</li>

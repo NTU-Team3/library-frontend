@@ -7,10 +7,14 @@ export default function Rating({ starsRating }) {
   const rate = [];
   for (let i = 0; i < 5; i++) {
     if (i < starsRating) {
-      rate[i] = <img class="star" src={starFill} alt={starsRating}></img>;
+      rate[i] = (
+        <img key={i} className="star" src={starFill} alt={starsRating}></img>
+      );
     } else {
-      rate[i] = <img class="star" src={star} alt={starsRating}></img>;
+      rate[i] = (
+        <img key={i} className="star" src={star} alt={starsRating}></img>
+      );
     }
   }
-  return <div class="rating">{rate}</div>;
+  return <div className="rating">{rate}</div>;
 }

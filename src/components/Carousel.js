@@ -7,7 +7,7 @@ import "../Assets/Styles/Carousel.css";
 
 function GalleryContainer({ booksToDisplay = 5 }) {
   return (
-    <div class="Carousel_container">
+    <div className="Carousel_container">
       <Carousel
         interval={null}
         nextIcon={<span className="slider">{">"}</span>}
