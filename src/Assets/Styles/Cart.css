@@ -27,3 +27,13 @@ padding-bottom: 1px;
 }
 .subtotal{
     font-size:25px}
+
+.empty{
+    margin: 5rem;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 80vw;
+height: 20vh;
+border: black solid 2px;
+}

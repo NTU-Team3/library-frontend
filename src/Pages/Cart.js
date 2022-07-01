@@ -18,15 +18,19 @@ export default function Cart() {
     <div>
       <NavBar />
       <div className="heading">Cart</div>
+
       <div className="cartItems_container">
-        <ShowBooks
-          data={cartItems}
-          border={true}
-          indexTo={5}
-          showRating={false}
-          type={"cart"}
-          func={handleCartItems}
-        />
+        {cartItems.length === 0 ? (
+          <h4 className="empty">Cart is empty </h4>
+        ) : (
+          <ShowBooks
+            data={cartItems}
+            border={true}
+            showRating={false}
+            type={"cart"}
+            func={handleCartItems}
+          />
+        )}
       </div>
       <div className="lower_container">
         <div>
