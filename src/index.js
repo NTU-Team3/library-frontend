@@ -7,10 +7,11 @@ import HomePg from "./Pages/Home";
 import ResultPage from "./Pages/ResultPage";
 import Cart from "./Pages/Cart";
 import Book from "./Pages/Book";
-
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
+    <ScrollToTop />
     <Routes>
       <Route element={<App />}>
         <Route path="/" element={<HomePg />} />

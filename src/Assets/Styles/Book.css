@@ -86,3 +86,17 @@ a:active{
     padding: 20px 10px;
     font-size: 16px;
 }
+
+.book__ratingContainer{
+    display: flex;
+ 
+}
+.book__globalrating{
+    font-size: 16px;
+    line-height: 100%;
+    align-self: flex-end;
+}
+.book__active{
+    background-color: rgba(255, 206, 69, 1);
+    
+}

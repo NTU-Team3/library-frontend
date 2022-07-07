@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Outlet, Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import API from "../API/APIUtils";
 import "../Assets/Styles/Book.css";
@@ -8,13 +7,13 @@ import Rating from "../components/Rating";
 export default function Book() {
   const [book, setBookInfo] = useState([
     {
-      title: "loading",
-      author: "loading",
-      rating: "loading",
-      thumbnail: "loading",
+      title: "",
+      author: "",
+      rating: "",
+      thumbnail: "",
     },
   ]);
-
+  const [activetab, setActiveTab] = useState("synopsis");
   let id = useParams().bookId;
 
   async function getBook() {
@@ -34,8 +33,11 @@ export default function Book() {
         <div className="book__top">
           <div className="book-title">{title}</div>
           <div className="author">{author}</div>
-          <div>
-            <Rating starsRating={rating} /> {globalrating} Reviews
+          <div className="book__ratingContainer">
+            <div>
+              <Rating starsRating={rating} />
+            </div>
+            <div className="book__globalrating">{globalrating} Reviews</div>
           </div>
         </div>
         <div className="book__middle">
@@ -47,14 +49,27 @@ export default function Book() {
 
             <div className="book__middle__leftcontainer_right">
               <div className="nav_container">
-                <div>
-                  <Link to="/invoices">Synopsis</Link>
+                <div
+                  className={activetab === "synopsis" ? "book__active" : ""}
+                  onClick={() => {
+                    setActiveTab("synopsis");
+                  }}
+                >
+                  Synopsis
                 </div>
-                <div>
-                  <Link to="/invoices">Reviews</Link>
+                <div
+                  className={activetab === "reviews" ? "book__active" : ""}
+                  onClick={() => {
+                    setActiveTab("reviews");
+                  }}
+                >
+                  Reviews
                 </div>
               </div>
-              <div className="desc">{desc}</div>
+
+              <div className="desc">
+                {activetab === "synopsis" ? desc : "reviews"}
+              </div>
             </div>
           </div>
         </div>

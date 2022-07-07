@@ -35,6 +35,8 @@ cursor: pointer;
     margin: 1px;
 }
 .bookCard-starsRating{
-    margin-top: auto;
+    display: flex;
+    justify-content: center;
+   
   
 }
