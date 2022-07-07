@@ -4,6 +4,7 @@ import "../../Assets/Styles/navbar.css";
 import SearchBar from "./SearchBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookOpenReader } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 class Navbar extends Component {
   render() {

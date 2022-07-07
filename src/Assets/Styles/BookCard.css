@@ -14,25 +14,27 @@ cursor: pointer;
     height: 140px;
     margin: 10px 0 10px;
     padding: 5px;
-    object-fit: contain;
+    object-fit: cover;
+ 
 }
-.book-title{
-    height: 40px;
-    width: 140px;
+.bookCard-title{
+    height: 60;
+    width: 80px;
     overflow: hidden;
+    overflow-wrap: break-word;
     text-overflow:ellipsis;
-    font-size: 14px !important;
+    font-size: 14px;
     margin-bottom: 5px;
-    text-align: center;
-}
-
-
-.buffer{
-    flex-grow: 1;
+    flex-grow: 2
+  
 }
 
 .star{
     height: 12px;
     width: 12px;
     margin: 1px;
+}
+.bookCard-starsRating{
+    margin-top: auto;
+  
 }

@@ -1,14 +1,22 @@
 import "../Assets/Styles/CarouselHead.css";
-import { Link } from "react-router-dom";
-function CarouselHead({ Heading }) {
+import { useNavigate } from "react-router-dom";
+
+function CarouselHead({ Heading, data }) {
+  const navigate = useNavigate();
+
   return (
     <div className="CarouselHead_heading">
       <div>
         <h5>{Heading}</h5>
       </div>
-      <Link to="/results" className="viewAll">
+      <p
+        onClick={() => {
+          navigate("/results", { state: { data: [...data] } });
+        }}
+        className="viewAll"
+      >
         View All
-      </Link>
+      </p>
     </div>
   );
 }

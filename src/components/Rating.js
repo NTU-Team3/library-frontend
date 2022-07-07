@@ -3,7 +3,7 @@ import star from "../Assets/Images/star.svg";
 import starFill from "../Assets/Images/star-fill.svg";
 import "../Assets/Styles/Rating.css";
 
-export default function Rating({ starsRating }) {
+export default function Rating({ starsRating, globalrating }) {
   const rate = [];
   for (let i = 0; i < 5; i++) {
     if (i < starsRating) {
@@ -16,5 +16,10 @@ export default function Rating({ starsRating }) {
       );
     }
   }
-  return <div className="rating">{rate}</div>;
+  return (
+    <div className="rating__container">
+      <div className="rating">{rate}</div>
+      <div>{globalrating}</div>
+    </div>
+  );
 }

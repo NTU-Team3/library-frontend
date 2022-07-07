@@ -1,13 +1,16 @@
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import DropdownBox from "../components/DropdownBox";
-import Navbar from "../components/Navbar/Navbar";
 import "../Assets/Styles/ResultPage.css";
-import fakeData from "../fakeData";
+// import fakeData from "../fakeData";
 import PaginationCustom from "../components/PaginationCustom";
 import ShowBooks from "../components/ShowBooks";
+import { useLocation } from "react-router-dom";
 
 function ResultPage({ bookPerPage = 10 }) {
-  let length = fakeData.length;
+  const { state } = useLocation();
+  const { data } = state;
+
+  let length = data.length;
 
   const [value, setValue] = useState("Most Popular");
   const [bookStartfrom, setBookStartfrom] = useState(1);
@@ -32,7 +35,7 @@ function ResultPage({ bookPerPage = 10 }) {
         <div className="heading">Search Results</div>
         <div className="pagination_container">
           <div>
-            {fakeData.length > 0 ? (
+            {data.length > 0 ? (
               <p>
                 {bookStartfrom}
                 {" - "}
@@ -50,7 +53,7 @@ function ResultPage({ bookPerPage = 10 }) {
       </div>
       <div>
         <ShowBooks //type: default
-          data={fakeData}
+          data={data}
           indexfrom={bookStartfrom}
           indexTo={bookTill}
         />

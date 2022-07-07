@@ -20,7 +20,7 @@ function SearchBar({ onSearchSubmit, returnResult, Clear }) {
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          navigate("/search");
+          navigate("/results");
           Clear();
         }}
       >

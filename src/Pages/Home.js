@@ -45,7 +45,7 @@ function HomePg() {
         <div></div>
         <div>
           <PromotionCarousel />
-          <CarouselHead Heading={"New Releases"} />
+          <CarouselHead Heading={"New Releases"} data={newRelease} />
           <Carousel data={newRelease} />
           <CarouselHead Heading={"Top Rated"} />
           <Carousel data={topRated} />

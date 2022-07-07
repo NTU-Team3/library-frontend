@@ -14,7 +14,6 @@ export default function ShowBooks({
 
   for (let index = indexfrom - 1; index <= indexTo - 1; index++) {
     function handleClick() {
-      console.log(_id);
       func(_id);
     }
     const { _id, thumbnail, title, rating, desc /* add author*/ } = data[index];
@@ -32,5 +31,5 @@ export default function ShowBooks({
     );
   }
 
-  return <div className="container"> {booksToDisplayPerPage} ;</div>;
+  return <div className="container"> {booksToDisplayPerPage}</div>;
 }

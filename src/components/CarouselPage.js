@@ -11,6 +11,7 @@ const CarouselPage = ({ booksToDisplay, noOfbooksToShow = 5 }) => {
             source={bookData.thumbnail}
             title={bookData.title}
             rating={bookData.rating}
+            globalrating={bookData.globalrating}
             bookID={bookData._id}
           />
         );

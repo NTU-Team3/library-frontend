@@ -1,4 +1,12 @@
 .rating{
     display: flex;
-margin-top: 10px;
+margin-right: 10px;
+}
+
+.rating__container{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 12px;
 }
