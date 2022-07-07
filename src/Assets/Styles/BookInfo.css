@@ -42,23 +42,26 @@
     grid-area: button;
     width: var(--item-button-width);
     height: 38px;
-    border-radius: calc(var(--item-button-width)/2);
+    border-radius: calc(var(--item-button-width)/2);   
+   
   }
 
   .BookInfo__container{
+    width: 80vw;
     display: grid;
-    grid-template-columns:1fr 5fr ;
-    grid-template-rows: repeat(5,fr);
+    grid-template-columns:repeat(5,1fr) ;
+    grid-template-rows: repeat(5,1fr);
     grid-template-areas: 
-    "thumbnail title . ."
-    "thumbnail rating . ."
-    "thumbnail desc . ."
-    "thumbnail desc . ."
-    "thumbnail desc .  button";
-    gap: 0px 10px;
+    "thumbnail title  . ."
+    "thumbnail rating  . ."
+    "thumbnail desc  . ."
+    "thumbnail desc  . ."
+    "thumbnail desc  . button";
+    gap: 0px 30px;
     margin: 25px 0;
-    padding: 25px;   
+    padding: 15px;   
     }
+
     .borderBottom{   
     border-bottom: solid 1px rgba(203, 203, 203, 1);}
     

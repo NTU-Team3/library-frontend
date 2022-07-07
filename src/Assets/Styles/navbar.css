@@ -60,6 +60,9 @@ a{
     justify-content: flex-end;;
     /* margin: 0 auto; */
 }
+.nav-links{
+    color: white !important;
+}
 
 /* .templateContainer .template_Container{
     display: flex;

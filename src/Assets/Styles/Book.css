@@ -39,8 +39,7 @@ height: auto;
 .book__middle{
     margin: 1rem 2rem 2rem 0
 }
-
-button{
+.addToCart{
     width: 133px;
     height: 40px;
     background-color: black;

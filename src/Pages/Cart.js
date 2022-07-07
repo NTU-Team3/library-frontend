@@ -8,7 +8,10 @@ export default function Cart() {
   const [cartItems, setCartItems] = useState(fakeData);
 
   function handleCartItems(idx) {
-    let getInx = cartItems.findIndex((book) => book.id === idx);
+    let getInx = cartItems.findIndex((book) => {
+      return book._id === idx;
+    });
+    console.log("index-parent", idx);
     console.log("getInx", getInx);
     let newCart = [...cartItems];
     newCart.splice(getInx, 1);
@@ -16,7 +19,6 @@ export default function Cart() {
   }
   return (
     <div>
-      <NavBar />
       <div className="heading">Cart</div>
 
       <div className="cartItems_container">

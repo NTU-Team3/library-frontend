@@ -42,7 +42,7 @@ export default function Book() {
           <div className="book__middle__leftcontainer">
             <div className="book__middle__leftcontainer_top">
               <img className="bigImage" src={thumbnail} alt={thumbnail}></img>
-              <button>add to cart</button>
+              <button className="addToCart">add to cart</button>
             </div>
 
             <div className="book__middle__leftcontainer_right">
