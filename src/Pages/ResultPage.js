@@ -7,15 +7,13 @@ import PaginationCustom from "../components/PaginationCustom";
 import ShowBooks from "../components/ShowBooks";
 
 function ResultPage({ bookPerPage = 10 }) {
+  let length = fakeData.length;
+
   const [value, setValue] = useState("Most Popular");
   const [bookStartfrom, setBookStartfrom] = useState(1);
-  const [bookTill, setBookTill] = useState(20);
-  let length = fakeData.length;
-  let page = Math.ceil(length / bookPerPage);
+  const [bookTill, setBookTill] = useState(length); //for media query
 
-  //page logic
-  // let bookStartfrom = ;
-  // let bookTill = activePage === page ? length : activePage * bookPerPage;
+  let page = Math.ceil(length / bookPerPage);
 
   //Uplift state from PaginationCustom.js
   function getActivePage(state) {
@@ -30,7 +28,6 @@ function ResultPage({ bookPerPage = 10 }) {
 
   return (
     <div>
-      <Navbar />
       <div>
         <div className="heading">Search Results</div>
         <div className="pagination_container">
@@ -52,7 +49,7 @@ function ResultPage({ bookPerPage = 10 }) {
         </div>
       </div>
       <div>
-        <ShowBooks
+        <ShowBooks //type: default
           data={fakeData}
           indexfrom={bookStartfrom}
           indexTo={bookTill}

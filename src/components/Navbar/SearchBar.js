@@ -1,40 +1,60 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../Assets/Styles/navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-// import data from "./TemplateData.json";
 import { useNavigate } from "react-router-dom";
+// import data from "./TemplateData.json";
 
-function SearchBar() {
+function SearchBar({ onSearchSubmit, returnResult }) {
+  const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
-  const [searchTerm, setSearchTerm] = useState("");
+  useEffect(() => {
+    if (searchTerm !== "") {
+      onSearchSubmit(searchTerm);
+    }
+  }, [searchTerm, onSearchSubmit]);
+
   return (
     <>
-      <div className="templateContainer">
-        <div className="searchInput_Container">
-          <form
-            onSubmit={(event) => {
-              event.preventDefault();
-              navigate("/search");
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          navigate("/search");
+        }}
+      >
+        <FontAwesomeIcon className="searchbar-logo" icon={faMagnifyingGlass} />
+        <div>
+          <input
+            className="searchBox"
+            type="text"
+            value={searchTerm}
+            onChange={(event) => {
+              setSearchTerm(event.target.value);
             }}
-          >
-            <FontAwesomeIcon
-              className="searchbar-logo"
-              icon={faMagnifyingGlass}
-            />
-
-            <input
-              className="searchBox"
-              type="text"
-              onChange={(event) => {
-                setSearchTerm(event.target.value);
-              }}
-            />
-            <input className="submit" type="submit" value="Search" />
-          </form>
+          />
+          <div className="result_container">
+            {returnResult.map((e) => {
+              return (
+                <div
+                  className="span_results"
+                  key={e._id}
+                  onClick={() => {
+                    navigate(`/book/${e._id}`);
+                  }}
+                >
+                  {" "}
+                  {e.title}
+                </div>
+              );
+            })}
+          </div>
         </div>
-        {/* <div className="template_Container">
+
+        <input className="submit" type="submit" value="Search" />
+      </form>
+
+      {/* <div className="template_Container">.
           {
             data 
               .filter((val) => {
@@ -55,7 +75,6 @@ function SearchBar() {
               })
           }
         </div> */}
-      </div>
     </>
   );
 }

@@ -7,10 +7,10 @@ const CarouselPage = ({ booksToDisplay, noOfbooksToShow = 5 }) => {
       {booksToDisplay.map((bookData) => {
         return (
           <BookCard
-            key={bookData.id}
+            key={bookData._id}
             source={bookData.thumbnail}
             title={bookData.title}
-            rating={3}
+            rating={bookData.rating}
           />
         );
       })}

@@ -3,24 +3,20 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePg from "./Pages/Home";
 import ResultPage from "./Pages/ResultPage";
 import Cart from "./Pages/Cart";
+import Book from "./Pages/Book";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="search" element={<ResultPage />} />
-      <Route path="cart" element={<Cart />} />
-      <Route // 404 route for invalid url
-        path="*"
-        element={
-          <main style={{ padding: "2rem" }}>
-            <h1>404 Page NotFound</h1>
-          </main>
-        }
-      />
+      <Route path="/" element={<App />}>
+        <Route path="/home" element={<HomePg />} />
+        <Route path="/results" element={<ResultPage />} />
+        <Route path="/book/:bookId" element={<Book />} />
+      </Route>
     </Routes>
   </BrowserRouter>
 );
