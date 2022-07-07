@@ -16,6 +16,7 @@ class Navbar extends Component {
           <SearchBar
             onSearchSubmit={this.props.onSearchSubmit}
             returnResult={this.props.returnResult}
+            Clear={this.props.Clear}
           />
         </div>
 

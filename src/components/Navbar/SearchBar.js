@@ -5,7 +5,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 // import data from "./TemplateData.json";
 
-function SearchBar({ onSearchSubmit, returnResult }) {
+function SearchBar({ onSearchSubmit, returnResult, Clear }) {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
@@ -21,6 +21,7 @@ function SearchBar({ onSearchSubmit, returnResult }) {
         onSubmit={(event) => {
           event.preventDefault();
           navigate("/search");
+          Clear();
         }}
       >
         <FontAwesomeIcon className="searchbar-logo" icon={faMagnifyingGlass} />
@@ -40,6 +41,8 @@ function SearchBar({ onSearchSubmit, returnResult }) {
                   className="span_results"
                   key={e._id}
                   onClick={() => {
+                    Clear();
+                    setSearchTerm("");
                     navigate(`/book/${e._id}`);
                   }}
                 >

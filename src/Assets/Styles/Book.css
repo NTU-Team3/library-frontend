@@ -1,0 +1,89 @@
+.main__container{
+padding: 60px 160px;
+}
+
+a {
+
+text-decoration: none;
+color: black !important;
+}
+
+.upper__container{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+}
+
+.book__top{
+    margin-bottom: 10px ;
+}
+.book-title{
+font-size:40px !important;
+width: auto;
+height: auto;
+}
+
+.author{
+    font-size:25px;
+}
+
+.book__middle{
+    margin-top: 4rem;
+}
+
+.bigImage{
+    width: 13vw;
+    height:20vw;
+
+}
+.book__middle{
+    margin: 1rem 2rem 2rem 0
+}
+
+button{
+    width: 133px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border-bottom-left-radius: 20px;
+    margin: 10px 0;
+
+}
+.book__middle__leftcontainer_top{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 3rem;
+}
+.book__middle__leftcontainer{
+    display: flex;
+}
+
+.nav_container{
+    display: flex;
+}
+
+.nav_container>div{
+    min-width: 140px;
+    min-height: 45px;
+    width: 141;
+    border: solid black 1px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a{font-size: 20px;
+font-weight: 
+700;}
+
+a:active{
+    background-color: orange;
+}
+.book__middle__leftcontainer_right{
+    margin-left: 3rem;
+}
+.desc{
+    padding: 20px 10px;
+    font-size: 16px;
+}

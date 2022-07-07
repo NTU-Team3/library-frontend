@@ -32,12 +32,22 @@ function App() {
     setAllBooks(importBooks);
   }
 
+  function clear() {
+    setSearchTerm("");
+    setReturnResult([]);
+  }
+
+  // when user click submit on search bar
   function onSearchSubmit(term) {
     setSearchTerm(term);
   }
   return (
     <div>
-      <Navbar onSearchSubmit={onSearchSubmit} returnResult={returnResult} />
+      <Navbar
+        onSearchSubmit={onSearchSubmit}
+        returnResult={returnResult}
+        Clear={clear}
+      />
       <Outlet />
     </div>
   );
