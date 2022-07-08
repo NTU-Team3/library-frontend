@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import API from "../API/APIUtils";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import "../Assets/Styles/Login.css";
 
 export default function Login() {
   const [email, setEmail] = useState("");
-  const [password, setpassword] = useState("");
+  const [password, setPassword] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -15,28 +18,40 @@ export default function Login() {
         console.log(error);
       });
   }
+  function validateForm() {
+    return email.length > 0 && password.length > 0;
+  }
 
   return (
     <div>
-      <h1>Login</h1>
-
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => {
-            setpassword(e.target.value);
-          }}
-        />
-        <input type="submit" />
-      </form>
+      <Form onSubmit={handleSubmit} className="Login">
+        <Form.Group size="md" controlId="email">
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            autoFocus
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group size="md" controlId="password">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </Form.Group>
+        <Button
+          className="Login__button"
+          block="true"
+          size="lg"
+          type="submit"
+          disabled={!validateForm()}
+        >
+          Login
+        </Button>
+      </Form>
     </div>
   );
 }

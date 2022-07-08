@@ -1,0 +1,11 @@
+.Login {
+    margin: 4rem auto; 
+    display: flex;
+    flex-direction: column;
+    max-width: 430px;
+  }
+
+  .Login__button{
+    margin-top: 1rem;
+  }
+
