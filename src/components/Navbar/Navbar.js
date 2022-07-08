@@ -1,18 +1,22 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { MenuItems } from "./MenuItems";
 import "../../Assets/Styles/navbar.css";
 import SearchBar from "./SearchBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookOpenReader } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
+import SiginButton from "./SiginButton";
+import HomeButton from "./HomeButton";
 
 class Navbar extends Component {
+  constructor() {
+    super();
+    this.state = { login: false };
+  }
+
   render() {
     return (
       <nav className="NavbarItems">
-        <div className="navbar-logo">
-          <FontAwesomeIcon icon={faBookOpenReader} />
-        </div>
+        <HomeButton />
         <div>
           <SearchBar
             onSearchSubmit={this.props.onSearchSubmit}
@@ -20,18 +24,25 @@ class Navbar extends Component {
             Clear={this.props.Clear}
           />
         </div>
-
-        <ul className="nav-menu">
-          {MenuItems.map((item, index) => {
-            return (
-              <div key={index}>
-                <a className={item.cName} href={item.url}>
-                  {item.img} {item.title}
-                </a>
-              </div>
-            );
-          })}
-        </ul>
+        {
+          <>
+            {this.state.login ? (
+              <ul className="nav-menu">
+                {MenuItems.map((item, index) => {
+                  return (
+                    <div key={index}>
+                      <a className={item.cName} href={item.url}>
+                        {item.img} {item.title}
+                      </a>
+                    </div>
+                  );
+                })}
+              </ul>
+            ) : (
+              <SiginButton />
+            )}
+          </>
+        }
       </nav>
     );
   }

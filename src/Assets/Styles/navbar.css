@@ -13,7 +13,7 @@ body{
     align-items: center;
     justify-content: center;
     width: 100%;
-  padding: 70px 0px 50px;
+    padding: 70px 0px 50px;
  
 }
 a{
@@ -22,8 +22,9 @@ a{
 }
 
 .navbar-logo {
-    margin: 0 200px 0 100px;
+    margin: 0 200px 0 0;
     font-size: 2em;
+    cursor: pointer;
 }
 
 .searchbar-logo {
@@ -126,4 +127,17 @@ form{
 background-color: lightslategrey !important;
 cursor: pointer;
 
+}
+
+.SignIn{
+    margin: 0 2rem;
+    font-size:1.5rem;
+    cursor: pointer;
+    border: none;
+    background-color: #222831;
+    color: white;
+}
+.SignIn:hover{
+    color: aqua;
+    background-color: #222831;
 }

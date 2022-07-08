@@ -6,10 +6,12 @@ import SideInfo from "../components/SideInfo";
 import Footer from "../components/Footer";
 import API from "../API/APIUtils";
 import React, { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 
 function HomePg() {
   const [newRelease, setNewRelease] = useState(["loading"]);
   const [topRated, setTopRated] = useState(["loading"]);
+  const [login, setLogin] = useState(false);
 
   async function GetNewRelease() {
     const response = await API.get("/public/newreleases");
@@ -21,6 +23,19 @@ function HomePg() {
     const response = await API.get("/public/toprated");
     const getTopRated = response.data.data;
     setTopRated(getTopRated);
+  }
+
+  function timeGreeting() {
+    var today = new Date();
+    var curHr = today.getHours();
+
+    if (curHr < 12) {
+      return "Good morning";
+    } else if (curHr < 18) {
+      return "Good afternoon";
+    } else {
+      return "Good evening";
+    }
   }
 
   const name = "Charline";
@@ -40,7 +55,13 @@ function HomePg() {
     <>
       <div className="homepg_container">
         <div className="greeting">
-          Greetings,{name}!<p className="greeting__p">{date}</p>
+          {login ? (
+            <>
+              Greetings,{name}!<p className="greeting__p">{date}</p>
+            </>
+          ) : (
+            <h1>{timeGreeting()}</h1>
+          )}
         </div>
         <div></div>
         <div>
