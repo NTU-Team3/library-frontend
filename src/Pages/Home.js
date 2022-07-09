@@ -6,7 +6,6 @@ import SideInfo from "../components/SideInfo";
 import Footer from "../components/Footer";
 import API from "../API/APIUtils";
 import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
 
 function HomePg() {
   const [newRelease, setNewRelease] = useState(["loading"]);
@@ -53,6 +52,7 @@ function HomePg() {
 
   return (
     <>
+
       <div className="homepg_container">
         <div className="greeting">
           {login ? (

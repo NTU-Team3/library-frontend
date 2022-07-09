@@ -22,7 +22,7 @@ function App() {
       });
       setReturnResult(returnSearch);
     } else {
-      setReturnResult([""]);
+      setReturnResult([]);
     }
   }, [searchTerm, allBooks]);
 
@@ -35,6 +35,7 @@ function App() {
   function clear() {
     setSearchTerm("");
     setReturnResult([]);
+    console.log("clear");
   }
 
   // when user click submit on search bar

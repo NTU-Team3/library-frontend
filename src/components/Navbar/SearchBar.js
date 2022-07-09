@@ -16,6 +16,10 @@ function SearchBar({ onSearchSubmit, returnResult, Clear }) {
     }
   }, [searchTerm, onSearchSubmit]);
 
+  function clearSearch() {
+    setSearchTerm("");
+  }
+
   return (
     <>
       <form
@@ -35,7 +39,9 @@ function SearchBar({ onSearchSubmit, returnResult, Clear }) {
               setSearchTerm(event.target.value);
             }}
             onBlur={() => {
-              SetOnBlur(true);
+              setTimeout(() => {
+                SetOnBlur(true);
+              }, 100);
             }}
             onFocus={() => {
               SetOnBlur(false);
@@ -48,9 +54,9 @@ function SearchBar({ onSearchSubmit, returnResult, Clear }) {
                   className="span_results"
                   key={e._id}
                   onClick={() => {
-                    Clear();
+                    navigate(`/book/${e._id}`, { replace: true });
                     setSearchTerm("");
-                    navigate(`/book/${e._id}`);
+                    Clear();
                   }}
                 >
                   {" "}
@@ -66,7 +72,7 @@ function SearchBar({ onSearchSubmit, returnResult, Clear }) {
 
       {/* <div className="template_Container">.
           {
-            data 
+            data
               .filter((val) => {
                 if(searchTerm == ""){
                   return val;
@@ -80,7 +86,7 @@ function SearchBar({ onSearchSubmit, returnResult, Clear }) {
                       <img src={val.image} alt="" />
                       <h3>{val.title}</h3>
                       <p className="price">${val.price}</p>
-                  </div> 
+                  </div>
                 )
               })
           }

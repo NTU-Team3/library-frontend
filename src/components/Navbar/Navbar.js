@@ -8,9 +8,10 @@ import SiginButton from "./SiginButton";
 import HomeButton from "./HomeButton";
 
 class Navbar extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { login: false };
+    this.clear = this.props.Clear;
   }
 
   render() {
@@ -21,7 +22,7 @@ class Navbar extends Component {
           <SearchBar
             onSearchSubmit={this.props.onSearchSubmit}
             returnResult={this.props.returnResult}
-            Clear={this.props.Clear}
+            Clear={this.clear}
           />
         </div>
         {
