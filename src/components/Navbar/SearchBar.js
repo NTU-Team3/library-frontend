@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 function SearchBar({ onSearchSubmit, returnResult, Clear }) {
   const [searchTerm, setSearchTerm] = useState("");
+  const [onBlur, SetOnBlur] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,8 +34,14 @@ function SearchBar({ onSearchSubmit, returnResult, Clear }) {
             onChange={(event) => {
               setSearchTerm(event.target.value);
             }}
+            onBlur={() => {
+              SetOnBlur(true);
+            }}
+            onFocus={() => {
+              SetOnBlur(false);
+            }}
           />
-          <div className="result_container">
+          <div className={onBlur ? "none" : "result_container"}>
             {returnResult.map((e) => {
               return (
                 <div
