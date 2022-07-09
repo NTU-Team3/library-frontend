@@ -54,7 +54,7 @@ function SearchBar({ onSearchSubmit, returnResult, Clear }) {
                   className="span_results"
                   key={e._id}
                   onClick={() => {
-                    navigate(`/book/${e._id}`, { replace: true });
+                    navigate(`/book/${e._id}`, { replace: false });
                     setSearchTerm("");
                     Clear();
                   }}

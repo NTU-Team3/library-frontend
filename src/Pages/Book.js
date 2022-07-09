@@ -13,8 +13,11 @@ export default function Book() {
       thumbnail: "",
     },
   ]);
-  const [activetab, setActiveTab] = useState("synopsis");
+
   let id = useParams().bookId;
+
+  const [activetab, setActiveTab] = useState("synopsis");
+  const [bookId, setId] = useState(id);
 
   async function getBook() {
     const response = await API.get(`/public/bookdetail/${id}`);
@@ -23,7 +26,7 @@ export default function Book() {
   }
   useEffect(() => {
     getBook();
-  }, []);
+  }, [id]);
 
   let { title, author, rating, thumbnail, globalrating, desc } = book;
 
