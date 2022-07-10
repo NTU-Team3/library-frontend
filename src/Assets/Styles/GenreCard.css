@@ -4,7 +4,6 @@
     border-top-left-radius:60px;
     border-bottom-left-radius:60px;
     background-color: black;
-    margin: 40px 0;
 
     }
 .GenreCard__heading{
@@ -17,7 +16,6 @@
 .GenreCard__imgContainer{
     height: 100%;
     width: 100%;
-    background-color: yellow;
     border-bottom-left-radius:60px;
 }
 .GenreCard__img{
@@ -26,7 +24,5 @@
     border-bottom-left-radius:60px;
     object-position:center;
     object-fit: cover;
-    
-    
 }
 

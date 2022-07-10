@@ -6,11 +6,14 @@ import SideInfo from "../components/SideInfo";
 import Footer from "../components/Footer";
 import API from "../API/APIUtils";
 import React, { useEffect, useState } from "react";
+import GenreCard from "../components/GenreCard";
+import FeaturePict from "../Assets/Images/Featured.jpg";
+import FeatureLanguage from "../Assets/Images/FeaturedLanguage.jpg";
 
 function HomePg() {
   const [newRelease, setNewRelease] = useState(["loading"]);
   const [topRated, setTopRated] = useState(["loading"]);
-  const [login, setLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
 
   async function GetNewRelease() {
     const response = await API.get("/public/newreleases");
@@ -52,10 +55,9 @@ function HomePg() {
 
   return (
     <>
-
       <div className="homepg_container">
         <div className="greeting">
-          {login ? (
+          {isLogin ? (
             <>
               Greetings,{name}!<p className="greeting__p">{date}</p>
             </>
@@ -71,8 +73,22 @@ function HomePg() {
           <CarouselHead Heading={"Top Rated"} />
           <Carousel data={topRated} />
         </div>
-        <SideInfo></SideInfo>
+        <div>
+          {isLogin && <SideInfo></SideInfo>}
+          <div className="GenreCard">
+            <GenreCard
+              heading="Featured Genre"
+              imgsrc={FeaturePict}
+            ></GenreCard>
+
+            <GenreCard
+              heading="Featured Language"
+              imgsrc={FeatureLanguage}
+            ></GenreCard>
+          </div>
+        </div>
       </div>
+
       <Footer date={"27th Jun 2022"}></Footer>
     </>
   );

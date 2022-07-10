@@ -1,7 +1,5 @@
 import "../Assets/Styles/SideInfo.css";
-import GenreCard from "./GenreCard";
-import FeaturePict from "../Assets/Images/Featured.jpg";
-import FeatureLanguage from "../Assets/Images/FeaturedLanguage.jpg";
+
 function SideInfo() {
   const readingList = [
     { title: "Atomic Habits" },
@@ -27,13 +25,6 @@ function SideInfo() {
             </div>
           );
         })}
-        <div>
-          <GenreCard heading="Featured Genre" imgsrc={FeaturePict}></GenreCard>
-        </div>
-        <GenreCard
-          heading="Featured Language"
-          imgsrc={FeatureLanguage}
-        ></GenreCard>
       </div>
     </>
   );
