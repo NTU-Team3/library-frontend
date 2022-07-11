@@ -10,7 +10,7 @@ function SiginButton() {
         navigate("/login");
       }}
     >
-      Sign in
+      Sign in / Register
     </button>
   );
 }
