@@ -98,5 +98,12 @@ a:active{
 }
 .book__active{
     background-color: rgba(255, 206, 69, 1);
-    
+}
+
+.moreInfo>p{
+   font-weight: bold;
+   text-transform: capitalize;
+}
+span{
+    font-weight: 100 ;
 }

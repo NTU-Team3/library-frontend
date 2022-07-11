@@ -58,7 +58,7 @@ function ResultPage({ bookPerPage = 10 }) {
               <p>
                 {bookStartfrom}
                 {" - "}
-                {bookTill} of {length} results for {searchTerm}
+                {bookTill} of {length} results for "{searchTerm}"
               </p>
             ) : (
               <p>No result found</p>

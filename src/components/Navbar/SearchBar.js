@@ -21,8 +21,10 @@ function SearchBar({ onSearchSubmit, returnResult, Clear }) {
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          navigate(`/results/${searchTerm}`);
-          window.location.reload();
+          if (searchTerm !== "") {
+            navigate(`/results/${searchTerm}`);
+            window.location.reload();
+          }
         }}
       >
         <FontAwesomeIcon className="searchbar-logo" icon={faMagnifyingGlass} />

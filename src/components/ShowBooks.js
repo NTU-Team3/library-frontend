@@ -29,6 +29,7 @@ export default function ShowBooks({
         type={type}
         author="To change"
         func={handleClick}
+        bookID={_id}
       />
     );
   }

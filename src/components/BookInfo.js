@@ -1,6 +1,7 @@
 import React from "react";
 import "../Assets/Styles/BookInfo.css";
 import Rating from "./Rating";
+import { useNavigate } from "react-router-dom";
 
 export default function BookInfo({
   thumbnail,
@@ -10,12 +11,20 @@ export default function BookInfo({
   type,
   author,
   func,
+  bookID,
 }) {
+  const navigate = useNavigate();
+
   return (
     <div
       className={`BookInfo__container ${type === "cart" ? "borderBottom" : ""}`}
     >
-      <div className="item-thumbnail">
+      <div
+        className="item-thumbnail"
+        onClick={() => {
+          navigate(`/book/${bookID}`);
+        }}
+      >
         <img className="thumbnail" alt={title} src={thumbnail} />
       </div>
 
