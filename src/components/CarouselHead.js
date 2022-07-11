@@ -11,7 +11,9 @@ function CarouselHead({ Heading, data }) {
       </div>
       <p
         onClick={() => {
-          navigate("/results", { state: { data: [...data] } });
+          navigate(`/results/${Heading}`, {
+            state: { data: [...data] },
+          });
         }}
         className="viewAll"
       >

@@ -11,13 +11,17 @@ export default function Book() {
       author: "",
       rating: "",
       thumbnail: "",
+      category: ["loading"],
+      pubdate: "",
+      isbn10: "",
+      isbn13: "",
+      pages: "",
     },
   ]);
 
   let id = useParams().bookId;
 
   const [activetab, setActiveTab] = useState("synopsis");
-  const [bookId, setId] = useState(id);
 
   async function getBook() {
     const response = await API.get(`/public/bookdetail/${id}`);
@@ -28,7 +32,19 @@ export default function Book() {
     getBook();
   }, [id]);
 
-  let { title, author, rating, thumbnail, globalrating, desc } = book;
+  let {
+    title,
+    author,
+    rating,
+    thumbnail,
+    globalrating,
+    desc,
+    category,
+    pubdate,
+    isbn10,
+    isbn13,
+    pages,
+  } = book;
 
   return (
     <div className="main__container">
@@ -66,12 +82,33 @@ export default function Book() {
                     setActiveTab("reviews");
                   }}
                 >
-                  Reviews
+                  More Info
                 </div>
               </div>
 
               <div className="desc">
-                {activetab === "synopsis" ? desc : "reviews"}
+                {activetab === "synopsis" ? (
+                  desc
+                ) : (
+                  <div className="moreInfo">
+                    <p>
+                      Category: <span> {category[0]}</span>
+                    </p>
+
+                    <p>
+                      Pubish date: <span>{pubdate}</span>
+                    </p>
+                    <p>
+                      ISBN10: <span>{isbn10}</span>
+                    </p>
+                    <p>
+                      ISBN13: <span>{isbn13}</span>
+                    </p>
+                    <p>
+                      Pages: <span>{pages}</span>
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </div>

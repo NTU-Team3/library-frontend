@@ -16,17 +16,29 @@
     padding: 15px;
     
     }
-.bookdue__container{
-    margin: 40px 0 0 0;
-}
-.bookDueAlert{
-height: 39px;
-width:300px;
-border-radius: 20px;
-background-color: rgba(255, 206, 69, 1);
-display: flex;
-align-items: center;
-color: black;
-margin: 10px 0 5px;
-padding: 15px;
-}
+    .bookdue__container{
+        margin: 40px 0 0 0;
+    }
+    .bookDueAlert{
+    height: 39px;
+    width:300px;
+    border-radius: 20px;
+    background-color: rgba(255,255,255,0.6);
+    display: flex;
+    align-items: center;
+    color: black;
+    margin: 10px 0 5px;
+    padding: 15px;
+    }
+
+    .bookDueAlertDueSoon{
+        height: 39px;
+        width:300px;
+        border-radius: 20px;
+        background-color: rgba(255, 206, 69, 1);
+        display: flex;
+        align-items: center;
+        color: black;
+        margin: 10px 0 5px;
+        padding: 15px;
+        }

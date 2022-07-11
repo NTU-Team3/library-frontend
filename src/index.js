@@ -19,7 +19,7 @@ root.render(
     <Routes>
       <Route element={<App />}>
         <Route path="/" element={<HomePg />} />
-        <Route path="/results" element={<ResultPage />} />
+        <Route path="/results/:searchTerm" element={<ResultPage />} />
         <Route path="/book/:bookId" element={<Book />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />

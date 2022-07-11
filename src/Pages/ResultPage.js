@@ -1,16 +1,35 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import DropdownBox from "../components/DropdownBox";
 import "../Assets/Styles/ResultPage.css";
-// import fakeData from "../fakeData";
+
 import PaginationCustom from "../components/PaginationCustom";
 import ShowBooks from "../components/ShowBooks";
 import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import API from "../API/APIUtils";
 
 function ResultPage({ bookPerPage = 10 }) {
+  let searchTerm = useParams().searchTerm;
   const { state } = useLocation();
-  const { data } = state;
 
-  let length = data.length;
+  const [SearchResult, setData] = useState(
+    state !== null ? state.data : "loading"
+  );
+
+  let length = 0;
+  length = SearchResult.length;
+
+  async function Search() {
+    const response = await API.get(`/public/search/${searchTerm}`);
+    const GetResult = await response.data.data;
+    setData(GetResult);
+    setBookTill(GetResult.length);
+    console.log(GetResult);
+  }
+
+  if (SearchResult === "loading") {
+    Search();
+  }
 
   const [value, setValue] = useState("Most Popular");
   const [bookStartfrom, setBookStartfrom] = useState(1);
@@ -18,7 +37,7 @@ function ResultPage({ bookPerPage = 10 }) {
 
   let page = Math.ceil(length / bookPerPage);
 
-  //Uplift state from PaginationCustom.js
+  // Uplift state from PaginationCustom.js
   function getActivePage(state) {
     setBookStartfrom(1 + state * bookPerPage - bookPerPage);
     setBookTill(state === page ? length : state * bookPerPage);
@@ -32,19 +51,19 @@ function ResultPage({ bookPerPage = 10 }) {
   return (
     <div>
       <div>
-        <div className="heading">Search Results</div>
+        <div className="ResultPageHeading">Search Results</div>
         <div className="pagination_container">
           <div>
-            {data.length > 0 ? (
+            {SearchResult.length > 0 ? (
               <p>
                 {bookStartfrom}
                 {" - "}
-                {bookTill} of {length} results for “fantasy”
+                {bookTill} of {length} results for "{searchTerm}"
               </p>
             ) : (
               <p>No result found</p>
             )}
-          </div>
+          </div>{" "}
           <div className="dropDown_Pagination">
             <DropdownBox value={value} handleSelect={handleSelect} />
             <PaginationCustom page={page} setActivePage={getActivePage} />
@@ -52,11 +71,13 @@ function ResultPage({ bookPerPage = 10 }) {
         </div>
       </div>
       <div>
-        <ShowBooks //type: default
-          data={data}
-          indexfrom={bookStartfrom}
-          indexTo={bookTill}
-        />
+        {SearchResult !== "loading" && (
+          <ShowBooks //type: default
+            data={SearchResult}
+            indexfrom={bookStartfrom}
+            indexTo={bookTill}
+          />
+        )}
       </div>
     </div>
   );

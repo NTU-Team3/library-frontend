@@ -16,17 +16,15 @@ function SearchBar({ onSearchSubmit, returnResult, Clear }) {
     }
   }, [searchTerm, onSearchSubmit]);
 
-  function clearSearch() {
-    setSearchTerm("");
-  }
-
   return (
     <>
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          navigate("/results");
-          Clear();
+          if (searchTerm !== "") {
+            navigate(`/results/${searchTerm}`);
+            window.location.reload();
+          }
         }}
       >
         <FontAwesomeIcon className="searchbar-logo" icon={faMagnifyingGlass} />
@@ -41,7 +39,7 @@ function SearchBar({ onSearchSubmit, returnResult, Clear }) {
             onBlur={() => {
               setTimeout(() => {
                 SetOnBlur(true);
-              }, 100);
+              }, 300);
             }}
             onFocus={() => {
               SetOnBlur(false);
@@ -54,6 +52,7 @@ function SearchBar({ onSearchSubmit, returnResult, Clear }) {
                   className="span_results"
                   key={e._id}
                   onClick={() => {
+                    console.log(`${e._id}`);
                     navigate(`/book/${e._id}`, { replace: false });
                     setSearchTerm("");
                     Clear();
