@@ -1,51 +1,39 @@
 .main {
-  margin: 5% 15% 25%;
+  display: flex;
+  flex-direction: column;
   width: 60%;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
+  width: 100%;
 }
 
 .item {
   width: 100%;
 }
 
-.avatar {
-  margin: 2% 0% 0%;
-}
-
 .headername {
   font-size: 24px;
-  margin: 3% 0% 0%;
 }
 
 .headerlocation {
   font-size: 15px;
-  margin: 0% 0% 7%;
 }
 
 .sectionheader {
   font-size: 20px;
   background-color: #ffce45;
-  padding: 2% 6%;
+  padding: 1% 5%;
 }
 
 .sectionhr {
-  background-color: #ffffff;
+  background-color: #222831;
   padding: 0.125%;
 }
 
 .sectiondiv {
   font-size: 15px;
-  margin: 3% 10% 0%;
-}
-
-.ulists {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+  margin: 0% 10%;
 }
 
 .button {
@@ -55,5 +43,5 @@
   background-color: #222831;
   color: white;
   border-bottom-left-radius: 20px;
-  margin: 2% 0% 7%;
+  margin: 2% 0%;
 }

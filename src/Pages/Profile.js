@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import API from "../API/APIUtils";
 import Avatar from "../components/Avatar";
-import Rating from "../components/Rating";
 import "../Assets/Styles/Profile.css";
 
 function Profile() {
@@ -15,57 +14,14 @@ function Profile() {
   const pathVProfile = "/member/v-profile/" + id;
 
   const pathULoans = "/member/u-loans/";
-  // const pathUReviews = "/member/u-reviews/";
-  // const pathUProfile = "/member/u-profile/";
+  const pathUReviews = "/member/u-reviews/";
+  const pathUProfile = "/member/u-profile/";
 
-  const [vloans, setVLoans] = useState([
-    {
-      loan_id: "",
-      title: "",
-      loandate: "",
-      duedate: "",
-    },
-  ]);
-
-  const [vreservations, setVReservations] = useState([
-    {
-      reservation_id: "",
-      title: "",
-      status: "",
-      latestpickup: "",
-    },
-  ]);
-
-  const [vhistories, setVHistories] = useState([
-    {
-      loan_id: "",
-      title: "",
-      loandate: "",
-      duedate: "",
-      returndate: "",
-    },
-  ]);
-
-  const [vreviews, setVReviews] = useState([
-    {
-      review_id: "",
-      title: "",
-      rating: "",
-      comments: "",
-      reviewdate: "",
-    },
-  ]);
-
-  const [vprofile, setVProfile] = useState([
-    {
-      _id: "",
-      name: "",
-      email: "",
-      location: "",
-      password: "",
-      profilepic: "",
-    },
-  ]);
+  const [vloans, setVLoans] = useState([]);
+  const [vreservations, setVReservations] = useState([]);
+  const [vhistories, setVHistories] = useState([]);
+  const [vreviews, setVReviews] = useState([]);
+  const [vprofile, setVProfile] = useState([]);
 
   const getVLoans = async () => {
     const response = await API.get(pathVLoans);
@@ -122,6 +78,21 @@ function Profile() {
     setVProfile(result);
   };
 
+  const refreshPage = () => {
+    window.location.reload();
+  };
+
+  const updateLoans = async (id, lid, btitle) => {
+    await API.put(pathULoans, { id, lid, btitle })
+      .then((response) => {
+        refreshPage();
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   useEffect(() => {
     getVLoans();
     getVProfile();
@@ -133,117 +104,136 @@ function Profile() {
   const { _id, name, email, location, password, profilepic } = vprofile;
 
   return (
-    <div className="main">
-      <h3>Profile</h3>
-      <div className="container">
-        <div className="item avatar">
-          <Avatar mname={name} mimg={profilepic} scale={155} borderw={0} borderc={"#000000"} />
-        </div>
-        <div className="item">
-          <div className="headername">{name}</div>
-          <div className="headerlocation">📍 {location}</div>
-        </div>
-        {/* --------------------------------------------------------------------------------------------------------------------- */}
-        <div className="item">
-          <div className="sectionheader">On Loan</div>
-          <div className="sectionhr"></div>
-          <div className="sectiondiv">
-            <ul className="ulists">
-              {vloans.map((vl) => (
-                <li key={vl.loans._id}>
-                  <span style={{ fontSize: "18px", fontWeight: "bold", fontStyle: "italic" }}>{vl.loans.title}</span>
-                  <br />
-                  Loan date:&nbsp;&nbsp;
-                  {vl.loans.loandate}
-                  <br />
-                  Due date:&nbsp;&nbsp;
-                  {vl.loans.duedate}
-                  <br />
-                  <button className="button">return</button>
-                </li>
-              ))}
-            </ul>
+    <>
+      <div className="main">
+        <div className="container">
+          <h3>Profile</h3>
+          <div className="item">
+            <Avatar mname={name} mimg={profilepic} scale={155} borderw={0} borderc={"#000000"} />
+            <div className="headername">{name}</div>
+            <div className="headerlocation">📍 {location}</div>
           </div>
         </div>
-        <div className="item">
-          <div className="sectionheader">Reservations</div>
-          <div className="sectionhr"></div>
-          <div className="sectiondiv">
-            <ul className="ulists">
+        {/* --------------------------------------------------------------------------------------------------------------------- */}
+        <div className="container">
+          <div className="item">
+            <div className="sectionheader">On Loan</div>
+            <div className="sectionhr"></div>
+            <div className="sectiondiv">
+              {vloans.map((vl) => (
+                <>
+                  <div key={vl.loans._id} className="populatediv">
+                    <span style={{ fontSize: "18px", fontWeight: "bold", fontStyle: "italic" }}>{vl.loans.title}</span>
+                    <br />
+                    Loan date:&nbsp;&nbsp;
+                    {new Date(vl.loans.loandate).toLocaleDateString("en-GB", {
+                      weekday: "short",
+                      year: "numeric",
+                      month: "short",
+                      day: "2-digit",
+                    })}
+                    <br />
+                    Due date:&nbsp;&nbsp;
+                    {new Date(vl.loans.duedate).toLocaleDateString("en-GB", {
+                      weekday: "short",
+                      year: "numeric",
+                      month: "short",
+                      day: "2-digit",
+                    })}
+                    <br />
+                    <button type="button" className="button" onClick={() => updateLoans(_id, vl.loans._id, vl.loans.title)}>
+                      return
+                    </button>
+                  </div>
+                </>
+              ))}
+            </div>
+          </div>
+          <div className="item">
+            <div className="sectionheader">Reservations</div>
+            <div className="sectionhr"></div>
+            <div className="sectiondiv">
               {vreservations.map((vrs) => (
-                <li key={vrs.reservations._id}>
+                <div key={vrs.reservations._id}>
                   <span style={{ fontSize: "18px", fontWeight: "bold", fontStyle: "italic" }}>{vrs.reservations.title}</span>
                   <br />
                   Status:&nbsp;&nbsp;
                   {vrs.reservations.status}
                   <br />
                   Latest Pickup:&nbsp;&nbsp;
-                  {vrs.reservations.latestpickup}
+                  {vrs.reservations.latestpickup == undefined
+                    ? "n/a"
+                    : new Date(vrs.reservations.latestpickup).toLocaleDateString("en-GB", {
+                        weekday: "short",
+                        year: "numeric",
+                        month: "short",
+                        day: "2-digit",
+                      })}
                   <br />
-                  <button className="button">add to cart</button>
-                </li>
+                  <button type="button" className="button" display="none">
+                    add to cart
+                  </button>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
-        </div>
-        <div className="item">
-          <div className="sectionheader">History</div>
-          <div className="sectionhr"></div>
-          <div className="sectiondiv">
-            <ul className="ulists">
+          <div className="item">
+            <div className="sectionheader">History</div>
+            <div className="sectionhr"></div>
+            <div className="sectiondiv">
               {vhistories.map((vh) => (
-                <li key={vh.loans._id}>
+                <div key={vh.loans._id}>
                   <span style={{ fontSize: "18px", fontWeight: "bold", fontStyle: "italic" }}>{vh.loans.title}</span>
                   <br />
-                  Loan date:&nbsp;&nbsp;
-                  {vh.loans.loandate}
-                  <br />
-                  Due date:&nbsp;&nbsp;
-                  {vh.loans.duedate}
-                  <br />
                   Return date:&nbsp;&nbsp;
-                  {vh.loans.returndate}
+                  {new Date(vh.loans.returndate).toLocaleDateString("en-GB", {
+                    year: "numeric",
+                    month: "short",
+                    day: "2-digit",
+                  })}
                   <br />
                   <br />
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
-        </div>
-        <div className="item">
-          <div className="sectionheader">Reviews</div>
-          <div className="sectionhr"></div>
-          <div className="sectiondiv">
-            <ul className="ulists">
+          <div className="item">
+            <div className="sectionheader">Reviews</div>
+            <div className="sectionhr"></div>
+            <div className="sectiondiv">
               {vreviews.map((vrv) => (
-                <li key={vrv.reviews._id}>
+                <div key={vrv.reviews._id}>
                   <span style={{ fontSize: "18px", fontWeight: "bold", fontStyle: "italic" }}>{vrv.reviews.title}</span>
                   <br />
                   Rating:&nbsp;&nbsp;
                   {vrv.reviews.rating} ⭐
                   <br />
                   Review date:&nbsp;&nbsp;
-                  {vrv.reviews.reviewdate}
+                  {new Date(vrv.reviews.reviewdate).toLocaleDateString("en-GB", {
+                    year: "numeric",
+                    month: "short",
+                    day: "2-digit",
+                  })}
                   <br />
                   Comments:
                   <br />
                   {vrv.reviews.comments}
                   <br />
-                  <button className="button">edit</button>
-                  {/* Rating: <Rating starsRating={vrv.reviews.rating} />
-                  <br /> */}
-                </li>
+                  <button type="button" className="button">
+                    edit
+                  </button>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
-        </div>
-        {/* --------------------------------------------------------------------------------------------------------------------- */}
-        <div className="item">
-          <div className="sectionheader">Profile</div>
-          <div className="sectionhr"></div>
-          <div className="sectiondiv">
-            <ul className="ulists">
-              <li key={_id}>
+          {/* --------------------------------------------------------------------------------------------------------------------- */}
+
+          <div className="item">
+            <div className="sectionheader">Profile</div>
+            <div className="sectionhr"></div>
+            <div className="sectiondiv">
+              <br />
+              <div key={_id}>
                 <span style={{ fontSize: "18px", fontWeight: "bold", fontStyle: "italic" }}>{name}</span>
                 <br />
                 Email:&nbsp;&nbsp;
@@ -254,13 +244,15 @@ function Profile() {
                 <br />
                 Password:&nbsp;&nbsp;
                 {password}
-              </li>
-            </ul>
-            <button className="button">edit</button>
+              </div>
+              <button type="button" className="button">
+                edit
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
