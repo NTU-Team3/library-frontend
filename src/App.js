@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import API from "./API/APIUtils";
+import Footer from "./components/Footer";
 
 function App() {
   const [allBooks, setAllBooks] = useState([]);
@@ -50,6 +51,8 @@ function App() {
         Clear={clear}
       />
       <Outlet />
+
+      <Footer date={"27th Jun 2022"}></Footer>
     </div>
   );
 }

@@ -17,7 +17,6 @@ export default function Book() {
   let id = useParams().bookId;
 
   const [activetab, setActiveTab] = useState("synopsis");
-  const [bookId, setId] = useState(id);
 
   async function getBook() {
     const response = await API.get(`/public/bookdetail/${id}`);

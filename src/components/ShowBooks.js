@@ -11,11 +11,13 @@ export default function ShowBooks({
   func,
 }) {
   const booksToDisplayPerPage = [];
+  console.log(indexTo);
 
   for (let index = indexfrom - 1; index <= indexTo - 1; index++) {
     function handleClick() {
       func(_id);
     }
+
     const { _id, thumbnail, title, rating, desc /* add author*/ } = data[index];
     booksToDisplayPerPage[index] = booksToDisplayPerPage[index] = (
       <BookInfo

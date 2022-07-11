@@ -2,15 +2,14 @@ import React, { Component, useState } from "react";
 import { MenuItems } from "./MenuItems";
 import "../../Assets/Styles/navbar.css";
 import SearchBar from "./SearchBar";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookOpenReader } from "@fortawesome/free-solid-svg-icons";
+
 import SiginButton from "./SiginButton";
 import HomeButton from "./HomeButton";
 
 class Navbar extends Component {
   constructor(props) {
     super(props);
-    this.state = { login: false };
+    this.state = { login: true };
     this.clear = this.props.Clear;
   }
 

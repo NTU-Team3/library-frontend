@@ -19,11 +19,9 @@ export default function BookInfo({
         <img className="thumbnail" alt={title} src={thumbnail} />
       </div>
 
-      <div className="item-title">
-        <div>{title} </div>
-      </div>
+      <div className="item-title">{title}</div>
       <div className="item-rating">
-        <div>{type === "cart" ? author : <Rating starsRating={rating} />}</div>
+        {type === "cart" ? author : <Rating starsRating={rating} />}
       </div>
       <div className="item-desc">{type === "cart" ? "" : desc}</div>
       <button

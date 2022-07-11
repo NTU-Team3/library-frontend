@@ -3,7 +3,7 @@ import "../Assets/Styles/Home.css";
 import CarouselHead from "../components/CarouselHead";
 import PromotionCarousel from "../components/PromotionCarousel";
 import SideInfo from "../components/SideInfo";
-import Footer from "../components/Footer";
+
 import API from "../API/APIUtils";
 import React, { useEffect, useState } from "react";
 import GenreCard from "../components/GenreCard";
@@ -13,7 +13,7 @@ import FeatureLanguage from "../Assets/Images/FeaturedLanguage.jpg";
 function HomePg() {
   const [newRelease, setNewRelease] = useState(["loading"]);
   const [topRated, setTopRated] = useState(["loading"]);
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
 
   async function GetNewRelease() {
     const response = await API.get("/public/newreleases");
@@ -70,7 +70,7 @@ function HomePg() {
           <PromotionCarousel />
           <CarouselHead Heading={"New Releases"} data={newRelease} />
           <Carousel data={newRelease} />
-          <CarouselHead Heading={"Top Rated"} />
+          <CarouselHead Heading={"Top Rated"} data={topRated} />
           <Carousel data={topRated} />
         </div>
         <div>
@@ -88,8 +88,6 @@ function HomePg() {
           </div>
         </div>
       </div>
-
-      <Footer date={"27th Jun 2022"}></Footer>
     </>
   );
 }
