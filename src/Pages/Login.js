@@ -25,6 +25,14 @@ export default function Login() {
         console.log(error);
       });
   }
+
+  function registerSubmit(event) {
+    API.post("/register", {
+      registerName: registerName,
+      registerEmail: registerEmail,
+      registerPassword: registerPassword,
+    });
+  }
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
@@ -53,9 +61,10 @@ export default function Login() {
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
     const checkErrors = validateRegisterForm();
-    console.log(checkErrors);
     if (checkErrors.length > 0) {
       setError(checkErrors);
+    } else {
+      registerSubmit();
     }
   };
 
@@ -160,10 +169,9 @@ export default function Login() {
               type="submit"
               onSubmit={validateRegisterForm()}
             >
-              Login
+              Register
             </Button>
             <div className="login__error">
-              {console.log("error length", errors)}
               {errors.length !== 0 ? (
                 <ul className="error_list">
                   {errors.map((e) => {
