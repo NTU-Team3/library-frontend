@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/library-frontend/static/css/main.30ac6ad0.css",
+    "main.js": "/library-frontend/static/js/main.02c185a9.js",
+    "static/media/Featured.jpg": "/library-frontend/static/media/Featured.8f4ade5a782701fcdf6b.jpg",
+    "static/media/FeaturedLanguage.jpg": "/library-frontend/static/media/FeaturedLanguage.365eb618a98c2285cb91.jpg",
+    "static/media/home-background.jpeg": "/library-frontend/static/media/home-background.8f19f8ee62704f89c55f.jpeg",
+    "static/media/oreo.jpeg": "/library-frontend/static/media/oreo.6a2ad416e895d4b7b55b.jpeg",
+    "static/media/product_oreo.jpeg": "/library-frontend/static/media/product_oreo.184e926cd9fd0f3f5159.jpeg",
+    "index.html": "/library-frontend/index.html",
+    "static/media/star.svg": "/library-frontend/static/media/star.fbefbcf2bb3dcf5b60abbd48321bdc77.svg",
+    "static/media/star-fill.svg": "/library-frontend/static/media/star-fill.9f18b82d2b1bc1b80b89c3e3e436dd3f.svg",
+    "main.30ac6ad0.css.map": "/library-frontend/static/css/main.30ac6ad0.css.map",
+    "main.02c185a9.js.map": "/library-frontend/static/js/main.02c185a9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.30ac6ad0.css",
+    "static/js/main.02c185a9.js"
+  ]
+}
