@@ -17,8 +17,8 @@ root.render(
   <BrowserRouter>
     <ScrollToTop />
     <Routes>
-      <Route element={<App />}>
-        <Route path="/" element={<HomePg />} />
+      <Route path="/" element={<App />}>
+        <Route path="/library-frontend/" element={<HomePg />} />
         <Route path="/results/:searchTerm" element={<ResultPage />} />
         <Route path="/book/:bookId" element={<Book />} />
         <Route path="/cart" element={<Cart />} />
