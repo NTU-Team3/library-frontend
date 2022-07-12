@@ -1,5 +1,5 @@
 .homepg_container{
-    background-image: url("..\Images\home-background.jpeg");
+    background-image: url("../Images/home-background.jpeg");
     background-repeat: no-repeat;
     background-color: rgba(238, 238, 238, 1);
     display: grid;
