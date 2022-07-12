@@ -92,7 +92,7 @@ export default function Book() {
                 ) : (
                   <div className="moreInfo">
                     <p>
-                      Category: <span> {category[0]}</span>
+                      Category: <span> {book.category}</span>
                     </p>
 
                     <p>
