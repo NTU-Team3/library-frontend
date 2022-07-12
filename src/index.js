@@ -19,11 +19,17 @@ root.render(
     <Routes>
       <Route path="/" element={<App />}>
         <Route path="/library-frontend/" element={<HomePg />} />
-        <Route path="/results/:searchTerm" element={<ResultPage />} />
-        <Route path="/book/:bookId" element={<Book />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/profile/:memberId" element={<Profile />} />
+        <Route
+          path="/library-frontend/results/:searchTerm"
+          element={<ResultPage />}
+        />
+        <Route path="/library-frontend//book/:bookId" element={<Book />} />
+        <Route path="/library-frontend/cart" element={<Cart />} />
+        <Route path="/library-frontend/login" element={<Login />} />
+        <Route
+          path="/library-frontend/profile/:memberId"
+          element={<Profile />}
+        />
 
         <Route
           path="*"
