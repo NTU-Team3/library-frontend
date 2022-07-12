@@ -10,7 +10,7 @@ function HomeButton(clearSearch) {
     <div
       className="navbar-logo"
       onClick={() => {
-        navigate("/library-frontend/");
+        navigate("/");
       }}
     >
       <FontAwesomeIcon icon={faBookOpenReader} />
