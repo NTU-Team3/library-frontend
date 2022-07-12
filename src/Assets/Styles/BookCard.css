@@ -1,14 +1,15 @@
-.bookcard_container{
-border-bottom-left-radius: 35px;
-border-top-left-radius: 35px;
-height: 10rem;
-width: 200px;
-height: 280px;
-display: flex;
-flex-direction: column;
-align-items: center;
-cursor: pointer;
-}
+    .bookcard_container{
+    border-bottom-left-radius: 35px;
+    border-top-left-radius: 35px;
+    height: 10rem;
+    width: 200px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    }
+    
 .image{
     width: 90px;
     height: 140px;
