@@ -34,3 +34,18 @@
 
   background-color: #FFCE45;
 }
+.login__error{
+  padding: 10px 0;
+}
+
+
+.error_list{
+  color: red;
+  margin: 0;
+  padding: 0;
+
+}
+.error_list>li{
+  font-weight: bold;
+  list-style-type: " - ";
+}
