@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import API from "../API/APIUtils";
 import Avatar from "../components/Avatar";
-import CollapsibleDiv from "../components/CollapsibleDiv";
+
 import "../Assets/Styles/Profile.css";
 
 function Profile() {
   const id = useParams().memberId;
-
   const pathVLoans = "/member/v-loans/" + id;
   const pathVReservations = "/member/v-reservations/" + id;
   const pathVHistories = "/member/v-histories/" + id;
@@ -15,8 +14,6 @@ function Profile() {
   const pathVProfile = "/member/v-profile/" + id;
 
   const pathULoans = "/member/u-loans/";
-  // const pathUReviews = "/member/u-reviews/";
-  // const pathUProfile = "/member/u-profile/";
 
   const [vloans, setVLoans] = useState([]);
   const [vreservations, setVReservations] = useState([]);
@@ -110,7 +107,13 @@ function Profile() {
         <h3>Profile</h3>
         <div className="containerProfile">
           <div className="itemProfile">
-            <Avatar mname={name} mimg={profilepic} scale={155} borderw={0} borderc={"#000"} />
+            <Avatar
+              mname={name}
+              mimg={profilepic}
+              scale={155}
+              borderw={0}
+              borderc={"#000"}
+            />
           </div>
           <div className="itemProfile">
             <div className="headername">{name}</div>
@@ -126,7 +129,15 @@ function Profile() {
               {vloans.map((vl) => (
                 <>
                   <div key={vl.loans._id} className="populatediv">
-                    <span style={{ fontSize: "18px", fontWeight: "bold", fontStyle: "italic" }}>{vl.loans.title}</span>
+                    <span
+                      style={{
+                        fontSize: "18px",
+                        fontWeight: "bold",
+                        fontStyle: "italic",
+                      }}
+                    >
+                      {vl.loans.title}
+                    </span>
                     <br />
                     Loan date:&nbsp;&nbsp;
                     {new Date(vl.loans.loandate).toLocaleDateString("en-GB", {
@@ -144,7 +155,13 @@ function Profile() {
                       day: "2-digit",
                     })}
                     <br />
-                    <button type="button" className="button" onClick={() => updateLoans(_id, vl.loans._id, vl.loans.title)}>
+                    <button
+                      type="button"
+                      className="button"
+                      onClick={() =>
+                        updateLoans(_id, vl.loans._id, vl.loans.title)
+                      }
+                    >
                       return
                     </button>
                   </div>
@@ -158,7 +175,15 @@ function Profile() {
             <div className="sectiondiv">
               {vreservations.map((vrs) => (
                 <div key={vrs.reservations._id} className="populatediv">
-                  <span style={{ fontSize: "18px", fontWeight: "bold", fontStyle: "italic" }}>{vrs.reservations.title}</span>
+                  <span
+                    style={{
+                      fontSize: "18px",
+                      fontWeight: "bold",
+                      fontStyle: "italic",
+                    }}
+                  >
+                    {vrs.reservations.title}
+                  </span>
                   <br />
                   Status:&nbsp;&nbsp;
                   {vrs.reservations.status}
@@ -166,7 +191,9 @@ function Profile() {
                   Pickup By:&nbsp;&nbsp;
                   {vrs.reservations.latestpickup == undefined
                     ? "n/a"
-                    : new Date(vrs.reservations.latestpickup).toLocaleDateString("en-GB", {
+                    : new Date(
+                        vrs.reservations.latestpickup
+                      ).toLocaleDateString("en-GB", {
                         weekday: "short",
                         year: "numeric",
                         month: "short",
@@ -186,7 +213,15 @@ function Profile() {
             <div className="sectiondiv">
               {vhistories.map((vh) => (
                 <div key={vh.loans._id} className="populatediv">
-                  <span style={{ fontSize: "18px", fontWeight: "bold", fontStyle: "italic" }}>{vh.loans.title}</span>
+                  <span
+                    style={{
+                      fontSize: "18px",
+                      fontWeight: "bold",
+                      fontStyle: "italic",
+                    }}
+                  >
+                    {vh.loans.title}
+                  </span>
                   <br />
                   Return date:&nbsp;&nbsp;
                   {new Date(vh.loans.returndate).toLocaleDateString("en-GB", {
@@ -206,17 +241,28 @@ function Profile() {
             <div className="sectiondiv">
               {vreviews.map((vrv) => (
                 <div key={vrv.reviews._id} className="populatediv">
-                  <span style={{ fontSize: "18px", fontWeight: "bold", fontStyle: "italic" }}>{vrv.reviews.title}</span>
+                  <span
+                    style={{
+                      fontSize: "18px",
+                      fontWeight: "bold",
+                      fontStyle: "italic",
+                    }}
+                  >
+                    {vrv.reviews.title}
+                  </span>
                   <br />
                   Rating:&nbsp;&nbsp;
                   {vrv.reviews.rating} ⭐
                   <br />
                   Review date:&nbsp;&nbsp;
-                  {new Date(vrv.reviews.reviewdate).toLocaleDateString("en-GB", {
-                    year: "numeric",
-                    month: "short",
-                    day: "2-digit",
-                  })}
+                  {new Date(vrv.reviews.reviewdate).toLocaleDateString(
+                    "en-GB",
+                    {
+                      year: "numeric",
+                      month: "short",
+                      day: "2-digit",
+                    }
+                  )}
                   <br />
                   Comments:
                   <br />
@@ -236,7 +282,15 @@ function Profile() {
             <div className="sectionhr"></div>
             <div className="sectiondiv">
               <div className="populatediv">
-                <span style={{ fontSize: "18px", fontWeight: "bold", fontStyle: "italic" }}>{name}</span>
+                <span
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: "bold",
+                    fontStyle: "italic",
+                  }}
+                >
+                  {name}
+                </span>
                 <br />
                 Email:&nbsp;&nbsp;
                 {email}

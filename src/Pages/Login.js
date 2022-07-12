@@ -92,7 +92,6 @@ export default function Login() {
           </button>
         </div>
         {buttonSelected === "signIn" ? (
-          // Login form
           <Form onSubmit={handleSubmit} className="Login">
             <h2>Sign-In</h2>
             <Form.Group size="md" controlId="email">

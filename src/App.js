@@ -39,7 +39,6 @@ function App() {
     console.log("clear");
   }
 
-  // when user click submit on search bar
   function onSearchSubmit(term) {
     setSearchTerm(term);
   }

@@ -33,17 +33,15 @@ function ResultPage({ bookPerPage = 10 }) {
 
   const [value, setValue] = useState("Most Popular");
   const [bookStartfrom, setBookStartfrom] = useState(1);
-  const [bookTill, setBookTill] = useState(length); //for media query
+  const [bookTill, setBookTill] = useState(length);
 
   let page = Math.ceil(length / bookPerPage);
 
-  // Uplift state from PaginationCustom.js
   function getActivePage(state) {
     setBookStartfrom(1 + state * bookPerPage - bookPerPage);
     setBookTill(state === page ? length : state * bookPerPage);
   }
 
-  // dropdown box
   const handleSelect = (e) => {
     setValue(e.target.textContent);
   };
@@ -72,7 +70,7 @@ function ResultPage({ bookPerPage = 10 }) {
       </div>
       <div>
         {SearchResult !== "loading" && (
-          <ShowBooks //type: default
+          <ShowBooks
             data={SearchResult}
             indexfrom={bookStartfrom}
             indexTo={bookTill}
