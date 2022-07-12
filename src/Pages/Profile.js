@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import API from "../API/APIUtils";
 import Avatar from "../components/Avatar";
+import CollapsibleDiv from "../components/CollapsibleDiv";
 import "../Assets/Styles/Profile.css";
 
 function Profile() {
@@ -14,8 +15,8 @@ function Profile() {
   const pathVProfile = "/member/v-profile/" + id;
 
   const pathULoans = "/member/u-loans/";
-  const pathUReviews = "/member/u-reviews/";
-  const pathUProfile = "/member/u-profile/";
+  // const pathUReviews = "/member/u-reviews/";
+  // const pathUProfile = "/member/u-profile/";
 
   const [vloans, setVLoans] = useState([]);
   const [vreservations, setVReservations] = useState([]);
@@ -106,17 +107,19 @@ function Profile() {
   return (
     <>
       <div className="main">
-        <div className="container">
-          <h3>Profile</h3>
-          <div className="item">
-            <Avatar mname={name} mimg={profilepic} scale={155} borderw={0} borderc={"#000000"} />
+        <h3>Profile</h3>
+        <div className="containerProfile">
+          <div className="itemProfile">
+            <Avatar mname={name} mimg={profilepic} scale={155} borderw={0} borderc={"#000"} />
+          </div>
+          <div className="itemProfile">
             <div className="headername">{name}</div>
             <div className="headerlocation">📍 {location}</div>
           </div>
         </div>
         {/* --------------------------------------------------------------------------------------------------------------------- */}
-        <div className="container">
-          <div className="item">
+        <div className="containerInfo">
+          <div className="itemInfo">
             <div className="sectionheader">On Loan</div>
             <div className="sectionhr"></div>
             <div className="sectiondiv">
@@ -149,18 +152,18 @@ function Profile() {
               ))}
             </div>
           </div>
-          <div className="item">
+          <div className="itemInfo">
             <div className="sectionheader">Reservations</div>
             <div className="sectionhr"></div>
             <div className="sectiondiv">
               {vreservations.map((vrs) => (
-                <div key={vrs.reservations._id}>
+                <div key={vrs.reservations._id} className="populatediv">
                   <span style={{ fontSize: "18px", fontWeight: "bold", fontStyle: "italic" }}>{vrs.reservations.title}</span>
                   <br />
                   Status:&nbsp;&nbsp;
                   {vrs.reservations.status}
                   <br />
-                  Latest Pickup:&nbsp;&nbsp;
+                  Pickup By:&nbsp;&nbsp;
                   {vrs.reservations.latestpickup == undefined
                     ? "n/a"
                     : new Date(vrs.reservations.latestpickup).toLocaleDateString("en-GB", {
@@ -177,12 +180,12 @@ function Profile() {
               ))}
             </div>
           </div>
-          <div className="item">
+          <div className="itemInfo">
             <div className="sectionheader">History</div>
             <div className="sectionhr"></div>
             <div className="sectiondiv">
               {vhistories.map((vh) => (
-                <div key={vh.loans._id}>
+                <div key={vh.loans._id} className="populatediv">
                   <span style={{ fontSize: "18px", fontWeight: "bold", fontStyle: "italic" }}>{vh.loans.title}</span>
                   <br />
                   Return date:&nbsp;&nbsp;
@@ -197,12 +200,12 @@ function Profile() {
               ))}
             </div>
           </div>
-          <div className="item">
+          <div className="itemInfo">
             <div className="sectionheader">Reviews</div>
             <div className="sectionhr"></div>
             <div className="sectiondiv">
               {vreviews.map((vrv) => (
-                <div key={vrv.reviews._id}>
+                <div key={vrv.reviews._id} className="populatediv">
                   <span style={{ fontSize: "18px", fontWeight: "bold", fontStyle: "italic" }}>{vrv.reviews.title}</span>
                   <br />
                   Rating:&nbsp;&nbsp;
@@ -228,12 +231,11 @@ function Profile() {
           </div>
           {/* --------------------------------------------------------------------------------------------------------------------- */}
 
-          <div className="item">
+          <div className="itemInfo">
             <div className="sectionheader">Profile</div>
             <div className="sectionhr"></div>
             <div className="sectiondiv">
-              <br />
-              <div key={_id}>
+              <div className="populatediv">
                 <span style={{ fontSize: "18px", fontWeight: "bold", fontStyle: "italic" }}>{name}</span>
                 <br />
                 Email:&nbsp;&nbsp;
@@ -257,4 +259,3 @@ function Profile() {
 }
 
 export default Profile;
-//
