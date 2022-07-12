@@ -39,6 +39,7 @@
   font-size: 20px;
   background-color: #ffce45;
   padding: 1% 5%;
+  border-bottom: 1px solid rgba(24, 40, 49, 1);
 }
 
 .sectiondiv {
