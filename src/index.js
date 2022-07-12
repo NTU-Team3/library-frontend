@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import HomePg from "./Pages/Home";
 import ResultPage from "./Pages/ResultPage";
 import Cart from "./Pages/Cart";
@@ -14,7 +14,7 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
+  <HashRouter>
     <ScrollToTop />
     <Routes>
       <Route path="/" element={<App />}>
@@ -41,5 +41,5 @@ root.render(
         />
       </Route>
     </Routes>
-  </BrowserRouter>
+  </HashRouter>
 );
