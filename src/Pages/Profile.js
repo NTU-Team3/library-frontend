@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import API from "../API/APIUtils";
 import Avatar from "../components/Avatar";
-
 import "../Assets/Styles/Profile.css";
 
 function Profile() {
   const id = useParams().memberId;
+
   const pathVLoans = "/member/v-loans/" + id;
   const pathVReservations = "/member/v-reservations/" + id;
   const pathVHistories = "/member/v-histories/" + id;
@@ -80,8 +80,8 @@ function Profile() {
     window.location.reload();
   };
 
-  const updateLoans = async (id, lid, btitle) => {
-    await API.put(pathULoans, { id, lid, btitle })
+  const updateLoans = async (id, lid) => {
+    await API.put(pathULoans, { id, lid })
       .then((response) => {
         refreshPage();
         console.log(response);
@@ -107,13 +107,7 @@ function Profile() {
         <h3>Profile</h3>
         <div className="containerProfile">
           <div className="itemProfile">
-            <Avatar
-              mname={name}
-              mimg={profilepic}
-              scale={155}
-              borderw={0}
-              borderc={"#000"}
-            />
+            <Avatar mname={name} mimg={profilepic} scale={155} borderw={0} borderc={"#000"} />
           </div>
           <div className="itemProfile">
             <div className="headername">{name}</div>
@@ -155,13 +149,7 @@ function Profile() {
                       day: "2-digit",
                     })}
                     <br />
-                    <button
-                      type="button"
-                      className="button"
-                      onClick={() =>
-                        updateLoans(_id, vl.loans._id, vl.loans.title)
-                      }
-                    >
+                    <button type="button" className="button" onClick={() => updateLoans(_id, vl.loans._id)}>
                       return
                     </button>
                   </div>
@@ -191,9 +179,7 @@ function Profile() {
                   Pickup By:&nbsp;&nbsp;
                   {vrs.reservations.latestpickup == undefined
                     ? "n/a"
-                    : new Date(
-                        vrs.reservations.latestpickup
-                      ).toLocaleDateString("en-GB", {
+                    : new Date(vrs.reservations.latestpickup).toLocaleDateString("en-GB", {
                         weekday: "short",
                         year: "numeric",
                         month: "short",
@@ -255,14 +241,11 @@ function Profile() {
                   {vrv.reviews.rating} ⭐
                   <br />
                   Review date:&nbsp;&nbsp;
-                  {new Date(vrv.reviews.reviewdate).toLocaleDateString(
-                    "en-GB",
-                    {
-                      year: "numeric",
-                      month: "short",
-                      day: "2-digit",
-                    }
-                  )}
+                  {new Date(vrv.reviews.reviewdate).toLocaleDateString("en-GB", {
+                    year: "numeric",
+                    month: "short",
+                    day: "2-digit",
+                  })}
                   <br />
                   Comments:
                   <br />
