@@ -1,0 +1,90 @@
+.main {
+  width: 60%;
+  margin: 3% 15%;
+}
+
+.containerProfile {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 5% 10% 5%;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.itemProfile {
+  width: 30%;
+}
+
+.itemInfo {
+  width: 100%;
+}
+
+.headername {
+  font-size: 24px;
+}
+
+.headerlocation {
+  font-size: 15px;
+}
+
+.sectionheader {
+  font-size: 20px;
+  background-color: #ffce45;
+  padding: 1% 5%;
+  border-bottom: 1px solid rgba(24, 40, 49, 1);
+}
+
+.sectionbutton {
+  margin: 20% 0%;
+}
+
+.button {
+  width: 110px;
+  height: 35px;
+  background-color: #222831;
+  color: white;
+  border-bottom-left-radius: 20px;
+}
+
+.tablegeneric {
+  border-collapse: collapse;
+  margin: 5%;
+  width: 90%;
+}
+
+.tabletitle {
+  font-weight: bold;
+  width: 45%;
+}
+
+.tableprofile {
+  border-collapse: collapse;
+  margin: 5%;
+  width: 90%;
+}
+
+.tableprofileitems {
+  width: 2%;
+  font-weight: bold;
+  font-style: italic;
+}
+
+span,
+thead {
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+td,
+th {
+  text-align: left;
+  border: 0px solid #ddd;
+  padding: 1.25% 2%;
+  width: 15%;
+}
+
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
