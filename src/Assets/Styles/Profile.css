@@ -36,7 +36,7 @@
 }
 
 .sectionbutton {
-  margin: 20% 0%;
+  margin: 5%;
 }
 
 .button {
@@ -87,4 +87,9 @@ th {
 
 tr:nth-child(odd) {
   background-color: #f2f2f2;
+}
+
+input {
+  width: 50%;
+  border: 1px solid #ddd;
 }

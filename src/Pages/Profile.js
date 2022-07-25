@@ -99,15 +99,26 @@ function Profile() {
       });
   };
 
+  const updateProfile = async (id, pname, pemail, plocation, ppassword) => {
+    setAction(null);
+
+    await API.put(pathUProfile, { id, pname, pemail, plocation, ppassword })
+      .then((response) => {
+        refreshPage();
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   useEffect(() => {
     getVLoans();
     getVProfile();
     getVReservations();
     getVHistories();
     getVReviews();
-  }, [action]);
-
-  const { _id, name, email, location, password, profilepic } = vprofile;
+  }, []);
 
   return (
     <>
@@ -115,11 +126,11 @@ function Profile() {
         <h3>Profile</h3>
         <div className="containerProfile">
           <div className="itemProfile">
-            <Avatar mname={name} mimg={profilepic} scale={155} borderw={0} borderc={"#000"} />
+            <Avatar mname={vprofile.name} mimg={vprofile.profilepic} scale={155} borderw={0} borderc={"#000"} />
           </div>
           <div className="itemProfile">
-            <div className="headername">{name}</div>
-            <div className="headerlocation">📍 {location}</div>
+            <div className="headername">{vprofile.name}</div>
+            <div className="headerlocation">📍 {vprofile.location}</div>
           </div>
         </div>
         {/* --------------------------------------------------------------------------------------------------------------------- */}
@@ -159,7 +170,7 @@ function Profile() {
                       })}
                     </td>
                     <td>
-                      <button type="button" className="button" onClick={() => updateLoans(_id, vl.loans._id)}>
+                      <button type="button" className="button" onClick={() => updateLoans(vprofile._id, vl.loans._id)}>
                         return
                       </button>
                     </td>
@@ -169,7 +180,7 @@ function Profile() {
             </table>
           )}
         </div>
-        <div className="itemInfo">
+        {/*      <div className="itemInfo">
           <div className="sectionheader">Reservations</div>
           <div className="sectionhr"></div>
           {!vreservations.length ? (
@@ -261,7 +272,9 @@ function Profile() {
               <thead>
                 <tr></tr>
                 <tr>
-                  <th className="tabletitle">Title:</th>
+                  <th className="tabletitle" style={{ width: "60%" }}>
+                    <th>Title:</th>
+                  </th>
                   <th>Review date:</th>
                   <th></th>
                 </tr>
@@ -270,9 +283,9 @@ function Profile() {
                 {vreviews.map((vrv) => (
                   <tr>
                     <td>
-                      <td>{vrv.reviews.title}</td>
+                      <td style={{ width: "15%" }}>{vrv.reviews.title}</td>
                       <td style={{ width: "5%" }}>{vrv.reviews.rating} ⭐</td>
-                      <td style={{ width: "20%" }}>{vrv.reviews.comments.slice(0, 120)} ...</td>
+                      <td style={{ width: "20%" }}>{vrv.reviews.comments.slice(0, 100)} ...</td>
                     </td>
                     <td>
                       {new Date(vrv.reviews.reviewdate).toLocaleDateString("en-GB", {
@@ -291,39 +304,90 @@ function Profile() {
               </tbody>
             </table>
           )}
-        </div>
+        </div> */}
         {/* --------------------------------------------------------------------------------------------------------------------- */}
 
         <div className="itemInfo">
           <div className="sectionheader">Profile</div>
           <div className="sectionhr"></div>
-          <table className="tableprofile">
-            <tr>
-              <th className="tableprofileitems">Name:</th>
-              <td>{name}</td>
-            </tr>
+          {action === "eprofile" ? (
+            <>
+              <table className="tableprofile">
+                <tbody>
+                  <tr>
+                    <th className="tableprofileitems">Name:</th>
+                    <td>
+                      <input type="text" placeholder={vprofile.name}></input>
+                    </td>
+                  </tr>
 
-            <tr>
-              <th className="tableprofileitems">Email:</th>
-              <td>{email}</td>
-            </tr>
+                  <tr>
+                    <th className="tableprofileitems">Email:</th>
+                    <td>
+                      <input type="text" placeholder={vprofile.email}></input>
+                    </td>
+                  </tr>
 
-            <tr>
-              <th className="tableprofileitems">Location:</th>
-              <td>{location}</td>
-            </tr>
+                  <tr>
+                    <th className="tableprofileitems">Location:</th>
+                    <td>
+                      <input type="text" placeholder={vprofile.location}></input>
+                    </td>
+                  </tr>
 
-            <tr>
-              <th className="tableprofileitems">Password:</th>
-              <td>{password}</td>
-              {/* <td>{password.replace(/./gi, "*")}</td> */}
-            </tr>
-            <div className="sectionbutton">
-              <button type="button" className="button" onClick={() => callAction("eprofile")}>
-                edit
-              </button>
-            </div>
-          </table>
+                  <tr>
+                    <th className="tableprofileitems">Password:</th>
+
+                    <td>
+                      <input type="text" placeholder={vprofile.password} />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div className="sectionbutton">
+                <button
+                  type="button"
+                  className="button"
+                  onClick={() => updateProfile(vprofile._id, vprofile.name, vprofile.email, vprofile.location, vprofile.password)}
+                >
+                  update
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <table className="tableprofile">
+                <tbody>
+                  <tr>
+                    <th className="tableprofileitems">Name:</th>
+                    <td>{vprofile.name}</td>
+                  </tr>
+
+                  <tr>
+                    <th className="tableprofileitems">Email:</th>
+                    <td>{vprofile.email}</td>
+                  </tr>
+
+                  <tr>
+                    <th className="tableprofileitems">Location:</th>
+                    <td>{vprofile.location}</td>
+                  </tr>
+
+                  <tr>
+                    <th className="tableprofileitems">Password:</th>
+                    <td>{vprofile.password}</td>
+                    {/* <td>{password.replace(/./gi, "*")}</td> */}
+                  </tr>
+                </tbody>
+              </table>
+
+              <div className="sectionbutton">
+                <button type="button" className="button" onClick={() => callAction("eprofile")}>
+                  edit
+                </button>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </>
